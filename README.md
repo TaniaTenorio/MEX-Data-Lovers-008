@@ -114,7 +114,7 @@ El primer prototipo diseñado para este proyecto considera las caracteristicas e
 
 Sketch:
 
-<img src= "src/Imagenes/Pantalla-buscar.jpg" width=300>
+<img src= "src/Imagenes/Pantalla-buscar.jpg">
 <img src= "src/Imagenes/buscar-por-nombre.jpg" width=300>
 <img src= "src/Imagenes/Pantalla-ayuda.jpg" width=300>
 

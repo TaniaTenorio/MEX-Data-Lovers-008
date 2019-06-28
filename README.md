@@ -31,13 +31,13 @@ Las preguntas incluidas en la encuesta fueron:
 
 Los resultados de la encuesta son los siguientes:
 
-![Gráfica de edades](/Imagenes/Edad.png)
-![Gráfica de género](/Imagenes/Genero.png)
-![Gráfica de conocimiento](/Imagenes/Pokemon.png)
-![Gráfica de Apps usadas por maestros Pokémon](/Imagenes/apps-maestros.png)
-![Gráfica de probabilidad](/Imagenes/App.png)
-![Gráfica de características](/Imagenes/Caracteristicas.png)
-![Gráfica de edades y probabilidad](/Imagenes/Edad-app.png)
+![Gráfica de edades](src/Imagenes/Edad.png)
+![Gráfica de género](src/Imagenes/Genero.png)
+![Gráfica de conocimiento](src/Imagenes/Pokemon.png)
+![Gráfica de Apps usadas por maestros Pokémon](src/Imagenes/apps-maestros.png)
+![Gráfica de probabilidad](src/Imagenes/App.png)
+![Gráfica de características](src/Imagenes/Caracteristicas.png)
+![Gráfica de edades y probabilidad](src/Imagenes/Edad-app.png)
 
 Para consultar el detalle de la encuesta solo da click aqui [Encuesta](https://docs.google.com/forms/d/1tJGnAgtlCqnqvrWzWuQZs6nvSESzQ6HWGSOJAOwO7CY/edit#responses)
 
@@ -105,7 +105,7 @@ Con base en esta información pudimos definir nuestro User Persona:
     -Como mostrar las caracteristicas
     -etc...
 
-<img src= "Imagenes/pantalla-base.gif">
+<img src= "src/Imagenes/pantalla-base.gif">
 
 ## Prototipado
 
@@ -114,8 +114,10 @@ El primer prototipo diseñado para este proyecto considera las caracteristicas e
 
 Sketch:
 
-<img src= "Imagenes/Pantalla-buscar.jpg" width=300>
-<img src= "Imagenes/buscar-por-nombre.jpg" width=300>
-<img src= "Imagenes/Pantalla-ayuda.jpg" width=300>
+<img src= "src/Imagenes/Pantalla-buscar.jpg" width=300>
+<img src= "src/Imagenes/buscar-por-nombre.jpg" width=300>
+<img src= "src/Imagenes/Pantalla-ayuda.jpg" width=300>
 
 ## User testing
+
+El siguiente paso es probar nuestro prototipo con los usuarios para obtener feedback.

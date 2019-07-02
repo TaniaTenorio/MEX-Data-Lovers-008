@@ -14,7 +14,7 @@ window.example = example;*/
 
 
 //llamar section donde se imprime la data
-let mostrar = document.getElementById('lista')
+/*let mostrar = document.getElementById('lista')
 // funcion que imprime toda la data en la section1
 let imprimir = () =>{
   mostrar.innerHTML = '';
@@ -27,4 +27,4 @@ let imprimir = () =>{
   }
 }
 
-imprimir();
+imprimir();*/

@@ -2,6 +2,9 @@
     margin:0;
     padding: 0;
 }
+/*#contenedor{
+    display: block;
+}*/
 .header{
     display: flex;
     justify-content: center;
@@ -10,7 +13,7 @@
     padding: 0px;
 
 }
-.name{
+.main{
     background-color: yellow;
 }
 .c-img{
@@ -44,6 +47,7 @@
     margin: 15px;
     padding: 10px;
     display: flex;
+    width: 98%;
     height: 80%;
     flex-direction: row;
     flex-wrap: wrap;
@@ -55,17 +59,20 @@
 }
     #lista ul li{
         margin: 10px;
-        width: 30%;
+        width: 29%;
         text-align: center;
         
     }
-    /*#lista ul li{
-        justify-content: center;
-    }*/
         #lista ul li:hover{
             background: rgb(236, 175, 175);
             /*padding: 10px;*/
             /*width: auto;*/
         }
+
+#section2{
+    
+    /*display: none;*/
+
+}
 
 

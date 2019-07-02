@@ -27,13 +27,36 @@
 
             <!--contenedor de tipos de busqueda-->
       <section id="section2">
+        <h2>BUSCAR</h2>
+        <div class="por-nombre">
           <label for="nombre-pokemon">Por nombre:</label>
           <input type="text" name="nombre" id="nombre-pokemon">
           <button id="buscar-nombre">Busqueda</button>
-          <!--contenedor donde se muestra la busqueda por nombre-->
-          <ul id="busqueda-nombre">
+        </div>
+        <div class="por-tipo">
+          <label for="tipo-pokemon">Por tipo:</label>
+          <button id="tipo-pokemon">Buscar</button>
+        </div>
+        <div class="por-debilidad">
+            <label for="debilidad-pokemon">Por debilidad:</label>
+            <button id="debilidad-pokemon">Buscar</button>
+        </div>
+        <div class="ordenar">
+          <label for="ordenar">Ordenar:</label>
+            <select id="ascendente">
+              <option value="ordenar">ordenar</option>
+                <option value="ascendente" >A-Z</option>
+                <option value="descendente" id="descendente">Z-A</option>
+                
+              </select> 
+        </div>
 
-          </ul>
+          <!--contenedor donde se muestra la busqueda por nombre-->
+          
+          <ul id="busqueda-nombre"></ul>
+          <ul id="busqueda-por-tipo"></ul>
+          <ul id="busqueda-por-debilidad"></ul>
+
       </section>
         <div class="section3">
 

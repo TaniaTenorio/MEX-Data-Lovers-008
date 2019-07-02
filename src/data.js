@@ -12,7 +12,23 @@ window.example = example;*/
 //let data = POKEMON;
 
 
-const filter = () => {
-  return filter;
-}
+// const filter = () => {
+//   return filter;
+// }
 
+let ordenar = (data,propiedad,orden) => {
+  console.log(orden);
+  let resultado = {};
+  if(orden === "ascendente") {
+  resultado = data.sort((a,b) => (a[propiedad] > b[propiedad] ? 1 : -1));
+console.log(resultado);
+
+} 
+else if(orden === "descendente") {
+  resultado = data.sort ((a,b) => (a.propiedad > b.propiedad ? -1 : 1));
+}
+return resultado;
+
+};
+
+window.ordenar = ordenar;

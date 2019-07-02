@@ -13,15 +13,32 @@
             <img src="Imagenes/pokexpert.png" alt="titulo-pokexpert">
         </div>
       </header>
-      <div class="name">
+      <div class="main">
+        <!--contenedor de la imagen de pokedex-->
         <div class="c-img">
             <img src="Imagenes/Pokedex.png" class="img-Pokedex">
-            <div class='section1'>
+            <!--contenedor de la section1 donde se muestra la data-->
+            <div class="section1">
               <div id="lista">
-              </div> 
+              </div>
             </div>
         </div>
       </div>
+
+            <!--contenedor de tipos de busqueda-->
+      <section id="section2">
+          <label for="nombre-pokemon">Por nombre:</label>
+          <input type="text" name="nombre" id="nombre-pokemon">
+          <button id="buscar-nombre">Busqueda</button>
+          <!--contenedor donde se muestra la busqueda por nombre-->
+          <ul id="busqueda-nombre">
+
+          </ul>
+      </section>
+        <div class="section3">
+
+        </div>
+    
     </div>
     
     <script src="./data/pokemon/pokemon.js"></script>

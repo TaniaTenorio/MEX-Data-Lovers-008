@@ -25,7 +25,7 @@ let imprimirBusqueda = document.getElementById('busqueda-nombre');
 let buscarNombre = () => {
   
   let texto= inputNombre.value.toLowerCase();
-  console.log(texto)
+  console.log(texto);
   for(let pokemon of POKEMON.pokemon){
         let nombre = pokemon.name.toLowerCase();
         if(nombre.indexOf(texto) !== -1){
@@ -42,19 +42,35 @@ let buscarNombre = () => {
 
 boton.addEventListener('click',buscarNombre);
 
-//Función ordenar ascendente
-// let ordenarData = document.getElementById("ordenar").value;
-let ascendente = document.getElementById("ascendente");
-// let descendente = document.getElementById("descendente");
+//Función ordenar
+let ordenarPor = document.getElementById("ordenar");
+let imprimirOrden = document.getElementById("lista-ordenada");
 
 const printordenar = () => {
-  let ordenarData = ascendente.value;
+
+  let ordenarData = ordenarPor.value;
   let data= POKEMON.pokemon;
-  let name= "name";
+  let name= "";
+  let str = "";
+  if(ordenarData === ("ascendente" || "descencente")){
+    name = "name";
+  }
+  else {
+    name = "num";
+  }
   const resultado =window.ordenar(data,name,ordenarData);
+  
+  resultado.forEach(element => {
+      str += `<li>
+      <img src="${element.img}">
+      <p><strong>Numero:</strong>${element.num}</p>
+      <p><strong>Nombre:</strong> ${element.name}</p>
+      </li> `;
+  });
+imprimirOrden.innerHTML=str;
   //console.log(resultado);
 };
-ascendente.addEventListener("change", printordenar);
+ordenarPor.addEventListener("change", printordenar);
 // descendente.addEventListener("c", printordenar);
 
 

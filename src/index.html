@@ -14,6 +14,17 @@
         </div>
       </header>
       <div class="main">
+          <div class="ordenarPor">
+              <label for="ordenar">Ordenar:</label>
+                <select id="ordenar">
+                    <option readonly>-Seleccionar-</option>
+                    <option value="ascendente" >A-Z</option>
+                    <option value="descendente">Z-A</option>
+                    <option value="numAscendente">001-151</option>
+                    <option value="numDescendente">151-001</option>
+                    
+                  </select> 
+            </div>
         <!--contenedor de la imagen de pokedex-->
         <div class="c-img">
             <img src="Imagenes/Pokedex.png" class="img-Pokedex">
@@ -41,18 +52,10 @@
             <label for="debilidad-pokemon">Por debilidad:</label>
             <button id="debilidad-pokemon">Buscar</button>
         </div>
-        <div class="ordenar">
-          <label for="ordenar">Ordenar:</label>
-            <select id="ascendente">
-              <option value="ordenar">ordenar</option>
-                <option value="ascendente" >A-Z</option>
-                <option value="descendente" id="descendente">Z-A</option>
-                
-              </select> 
-        </div>
+        
 
           <!--contenedor donde se muestra la busqueda por nombre-->
-          
+          <ul id="lista-ordenada"></ul>
           <ul id="busqueda-nombre"></ul>
           <ul id="busqueda-por-tipo"></ul>
           <ul id="busqueda-por-debilidad"></ul>

@@ -27,6 +27,7 @@ console.log(resultado);
 else if(orden === "descendente") {
   resultado = data.sort ((a,b) => (a.propiedad > b.propiedad ? -1 : 1));
 }
+else if(orden === "")
 return resultado;
 
 };

@@ -74,5 +74,19 @@
     /*display: none;*/
 
 }
-
+#tipos{
+    display: none;
+}
+#tipos ul {
+display: flex;
+list-style: none;
+flex-wrap: wrap;
+justify-content: center;
+}
+#tipos ul li{
+    display: flex;
+    text-align: center;
+    width: 33%;
+    flex-direction: column;
+}
 

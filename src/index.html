@@ -16,51 +16,57 @@
       <div class="main">
           <div class="ordenarPor">
               <label for="ordenar">Ordenar:</label>
-                <select id="ordenar">
+              <select id="ordenar">
                     <option readonly>-Seleccionar-</option>
                     <option value="ascendente" >A-Z</option>
                     <option value="descendente">Z-A</option>
                     <option value="numAscendente">001-151</option>
                     <option value="numDescendente">151-001</option>
-                    
-                  </select> 
-            </div>
-        <!--contenedor de la imagen de pokedex-->
-        <div class="c-img">
+              </select> 
+          </div>
+          <!--contenedor de la imagen de pokedex-->
+          <div class="c-img">
             <img src="Imagenes/Pokedex.png" class="img-Pokedex">
             <!--contenedor de la section1 donde se muestra la data-->
-            <div class="section1">
-              <div id="lista">
-              </div>
-            </div>
-        </div>
-      </div>
+            <div class="pantalla-principal">
+              <div id="lista"></div>
+              <button id="prueba">prueba</button>
+            </div><!--Aqui termina class "pantalla-principal-->
+          </div><!--Aqui termina class "c-img!-->
+      </div><!--Aqui termina class "main"-->
 
             <!--contenedor de tipos de busqueda-->
-      <section id="section2">
-        <h2>BUSCAR</h2>
-        <div class="por-nombre">
-          <label for="nombre-pokemon">Por nombre:</label>
-          <input type="text" name="nombre" id="nombre-pokemon">
-          <button id="buscar-nombre">Busqueda</button>
-        </div>
+      <section id="pantalla-buscar">
+        <div class="pantalla-buscar">
+          <h2>BUSCAR</h2>
+          <!--Busqueda por nombre-->
+          <div class="por-nombre">
+            <label for="nombre-pokemon">Por nombre:</label>
+            <input type="text" name="nombre" id="nombre-pokemon">
+            <button id="buscar-nombre">Busqueda</button>
+          </div>
           <!--Busqueda por tipo-->
         <div class="por-tipo">
           <label for="tipo-pokemon">Por tipo:</label>
           <button id="tipo-pokemon">Buscar</button>
         </div>
+        <!--Busqueda por debilidad-->
         <div class="por-debilidad">
             <label for="debilidad-pokemon">Por debilidad:</label>
             <button id="debilidad-pokemon">Buscar</button>
         </div>
-        
+      </div>
 
           <!--contenedor donde se muestra la busqueda por nombre-->
-          <ul id="lista-ordenada"></ul>
-          <ul id="busqueda-nombre"></ul>
+        <section class="pantalla-result-busqueda-nombre" id="pantalla-result-busqueda-nombre">
+          <ul id="result-busqueda-nombre"></ul>
+        </section>
+
+        <section class="pantalla-iconos-tipos" id="pantalla-iconos-tipos">
+          
           <div id="tipos">
           <ul>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoAgua.png" id="water">Water</li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoAgua.png" id="water"><p>Water</p></li>
             <li class="iconos"><img src="Imagenes/Tipos/tipoFuego.png" id="fire">Fire</li>
             <li class="iconos"><img src="Imagenes/Tipos/TipoPlanta.png" id="grass">Grass</li>
             <li class="iconos"><img src="Imagenes/Tipos/TipoTierra.png" id="ground">Ground</li>
@@ -80,7 +86,8 @@
             <li class="iconos"><img src="Imagenes/Tipos/TipoHada.png" id="fairy">Fairy</li>
           </ul>
         </div>
-
+        <ul id="lista-ordenada"></ul>
+        </section>
           <ul id="busqueda-por-tipo"></ul>
           <ul id="busqueda-por-debilidad"></ul>
 

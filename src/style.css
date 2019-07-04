@@ -1,18 +1,11 @@
 *{
-    margin:0;
-    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 /*#contenedor{
     display: block;
 }*/
-.header{
-    display: flex;
-    justify-content: center;
-    height: 214px;
-    width: 101%;
-    padding: 0px;
-
-}
 .main{
     background-color: yellow;
 }
@@ -29,30 +22,37 @@
          width: 100%;
          margin: 20px;
     }
-.section1{
-    display: flex;
+.pantalla-principal{
+    display: block; /*le quité display:flex para poder ponerle block*/
     position: absolute;
     width: 100%;
     height: 92%;
     justify-content: center;
-
 }
 #lista{
+    display: grid;
+    grid-template-rows: 20% 80%;
     margin: 40px;
     height: 100%;
-
-
+}
+.titulo-pokexpert{
+    display: inline;
+    grid-row-start:1;
+    grid-row-end:2;
 }
 #lista ul{
+    grid-row-start:2;
+    grid-row-end: 3;
+    background: black;
     margin: 15px;
     padding: 10px;
     display: flex;
-    width: 98%;
+    width: 100%;
     height: 80%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    /* align-content: center; */
+    /*align-content: center; */
     overflow: auto;
     list-style: none;
 
@@ -68,25 +68,188 @@
             /*padding: 10px;*/
             /*width: auto;*/
         }
+#lista ul li p{
+    color: white;
+}
 
-#section2{
+#pantalla-buscar{
+    display: block: 
     
-    /*display: none;*/
+}
+.pantalla-buscar{
+    display: grid;
+    background: gray;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto;
+}
+.pantalla-result-busqueda-nombre{
+    display: grid;
+}
+.pantalla-result-busqueda-nombre ul li{
+    list-style: none;
+    text-align: center;
+}
 
+
+ .titulo-buscar{
+background: blue;
+grid-column-start: 2;
+grid-column-end: 5;
+grid-row-start: 1;
+grid-row-end: 3;
+text-align: center;
+}
+.por-nombre{
+    background: green;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start:4;
+    grid-row-end: 5;
+    text-align: center;
+}
+.por-tipo{
+    background: orange;
+    grid-column-start:2;
+    grid-column-end: 3;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    text-align: center;
+}
+.por-debilidad{
+    background: yellow;
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 5;
+    grid-row-end: 6;
+    text-align: center;
+}  
+.pantalla-iconos-tipos{
+    display: block;
 }
 #tipos{
-    display: none;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto;
 }
 #tipos ul {
-display: flex;
-list-style: none;
-flex-wrap: wrap;
-justify-content: center;
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 #tipos ul li{
-    display: flex;
+    
     text-align: center;
-    width: 33%;
-    flex-direction: column;
+    
+    
 }
+#water{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    
+}
+#fire{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#grass{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#ground{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
 
+}
+#rock{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#steel{
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+#ice{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#electric{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#dragon{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#ghost{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#psychic{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#normal{
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+#fighting{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+#poison{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+#bug{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+#flying{
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+#dark{
+    grid-column-start: 5;
+    grid-column-end: 6;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+#fairy{
+    grid-column-start: 6;
+    grid-column-end: 7;
+    grid-row-start: 3;
+    grid-row-end: 4;
+}

@@ -22,7 +22,7 @@ imprimir();
 //funcion que busca por nombre del pokemon
 let boton = document.getElementById('buscar-nombre');
 let inputNombre = document.getElementById('nombre-pokemon');
-let imprimirBusqueda = document.getElementById('busqueda-nombre');
+let imprimirBusqueda = document.getElementById('result-busqueda-nombre');
 
 let buscarNombre = () => {
   
@@ -32,11 +32,11 @@ let buscarNombre = () => {
         if(nombre.indexOf(texto) !== -1){
             imprimirBusqueda.innerHTML = `<li>
             <img src="${pokemon.img}">
-            <p><strong>Numero:</strong>${pokemon.num}</p>
+            <p><strong>No.:</strong>${pokemon.num}</p>
             <p><strong>Nombre:</strong> ${pokemon.name}</p>
-            <p><strong>Numero:</strong>${pokemon.type}</p>
-            <p><strong>Nombre:</strong> ${pokemon.weaknesses}</p>
-            <p><strong>Nombre:</strong> ${pokemon.next_evolution}</p>
+            <p><strong>Tipo:</strong>${pokemon.type}</p>
+            <p><strong>Debilidad:</strong> ${pokemon.weaknesses}</p>
+            <p><strong>Sig. Evolución:</strong> ${pokemon.next_evolution}</p>
             </li>`;
         }
     }
@@ -79,13 +79,14 @@ ordenarPor.addEventListener("change", printordenar);
 //Funcion que muestra los tipos de Pokemon
 //boton que se va a la lista de Tipos
 let botonBuscarTipos=document.getElementById("tipo-pokemon");
-let ulTipos=document.getElementById("tipos");
+let botonBuscarDebilidad=document.getElementById("debilidad-pokemon");
+let pantallaTipos=document.getElementById("pantalla-iconos-tipos");
 
 const tipos = () =>{
-  ulTipos.style.display="block";
+  pantallaTipos.style.display="block";
 };
 botonBuscarTipos.addEventListener("click",tipos);
-
+botonBuscarDebilidad.addEventListener("click",tipos);
 
 //Funcion que imprime la data por tipo
 
@@ -104,6 +105,31 @@ let tipo = document.getElementsByClassName("iconos");
   //console.log(resultado);
   //printTipo.innerHTML = resultado;
   }
+  let botonPrueba = document.getElementById("prueba");
+  let myFunction = () => {
+    document.getElementById("pantalla-buscar").style.display = "block";
+    document.getElementById("pantalla-principal").style.display = "none";
+  };
+  botonPrueba.addEventListener("click",myFunction);
 
+  // data.forEach(pokemon => {
+    
+    
+  // //   let filtroPasto = dataTipos.filter(tipo => tipo === "Grass");
+  //   console.log(dataTipos);
+  // });
+  // const dataTipos = data[0].type;
+  
+    let filtro = data.filter(pokemon => {
+      for( let i = 0; i < pokemon.type.length; i++){
+        if (pokemon.type[i]=== "Grass"){
+          return true;
+        }
+      }
+      return false;
+    });
+    console.log(filtro);
+  
+  
 
 

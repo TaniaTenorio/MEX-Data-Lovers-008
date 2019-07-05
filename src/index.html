@@ -8,11 +8,6 @@
   </head>
   <body>
     <div class="contenedor">
-      <header>
-        <div class="header">
-            <img src="Imagenes/pokexpert.png" alt="titulo-pokexpert">
-        </div>
-      </header>
       <div class="main">
           <div class="ordenarPor">
               <label for="ordenar">Ordenar:</label>
@@ -33,9 +28,10 @@
 
             <!--contenedor de la section1 donde se muestra la data-->
             <div class="pantalla-principal" id="pantalla-principal">
+              <img src="Imagenes/pokexpert.png" class="titulo-pokexpert">
               <div id="lista"></div>
+              </div><!--Aqui termina class "pantalla-principal-->
               
-            </div><!--Aqui termina class "pantalla-principal-->
           </div><!--Aqui termina class "c-img!-->
       </div><!--Aqui termina class "main"-->
 
@@ -60,6 +56,11 @@
           </div>
       </section>
 
+          <!--Pantalla que imprime la lista Ordenada en orden ascendente y descendente-->
+          <div id="pantalla-lista-ordenada">
+              <ul id="lista-ordenada"></ul>
+          </div>
+          
           <!--contenedor donde se muestra la busqueda por nombre-->
         <section class="pantalla-result-busqueda-nombre" id="pantalla-result-busqueda-nombre">
           <ul id="result-busqueda-nombre"></ul>
@@ -89,8 +90,12 @@
             <li class="iconos"><img src="Imagenes/Tipos/TipoHada.png" id="Fairy">Fairy</li>
           </ul>
         </div>
-        <ul id="lista-ordenada"></ul>
         </section>
+
+        <!--Pantalla que imprime la lista Ordenada en orden ascendente y descendente-->
+        <div id="pantalla-lista-ordenada">
+            <ul id="lista-ordenada"></ul>
+        </div>
           <ul id="busqueda-por-tipo"></ul>
           <ul id="busqueda-por-debilidad"></ul>
 

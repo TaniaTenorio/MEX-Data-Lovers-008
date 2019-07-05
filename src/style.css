@@ -23,37 +23,42 @@
          margin: 20px;
     }
 .pantalla-principal{
-    display: block; /*le quité display:flex para poder ponerle block*/
+    /*display: block; le quité display:flex para poder ponerle block*/
     position: absolute;
     width: 100%;
     height: 92%;
     justify-content: center;
-}
-#lista{
     display: grid;
     grid-template-rows: 20% 80%;
-    margin: 40px;
-    height: 100%;
 }
+/*#lista{
+    display: grid;
+    grid-template-rows: 20% 80%;
+    margin: 10px;
+    height: 96%;
+}*/
 .titulo-pokexpert{
-    display: inline;
+    display: flex;
     grid-row-start:1;
     grid-row-end:2;
+    width: 50%;
+    text-align: center;
+
 }
 #lista ul{
-    grid-row-start:2;
+    grid-row-start:1;
     grid-row-end: 3;
     background: black;
-    margin: 15px;
+    margin: 10px;
     padding: 10px;
     display: flex;
-    width: 100%;
-    height: 80%;
+    width: 98%;
+    height: 85%;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     /*align-content: center; */
-    overflow: auto;
+    overflow-y: scroll;
     list-style: none;
 
 }
@@ -128,6 +133,7 @@ text-align: center;
 }
 #busqueda-por-tipo{
     display:none;
+
 }
 #tipos{
     display: grid;

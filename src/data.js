@@ -36,17 +36,16 @@ window.example = example;*/
 
 }
   let filtrar = (data,condicion) => {
-    let arrayData = [];
-    let string=" ";
-    for(let key in data ){
-      const element = data[key];
-      arrayData.push(element);
-      string += arrayData.filter(arr => arr === condicion);
-    }
-      //string = arrayData.filter(arr => arr.type === condicion);
-      console.log(string);
-      return string;
-    }
+    let filtro = data.filter(pokemon => {
+      for( let i = 0; i < pokemon.type.length; i++){
+        if (pokemon.type[i] === condicion){
+          return true;
+        }
+      }
+      return false;
+    });
+    return filtro;
+  }
     
 
 window.ordenar= ordenar;

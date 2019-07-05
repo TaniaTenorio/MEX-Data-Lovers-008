@@ -73,7 +73,7 @@
 }
 
 #pantalla-buscar{
-    display: block: 
+    display: none;
     
 }
 .pantalla-buscar{
@@ -124,7 +124,10 @@ text-align: center;
     text-align: center;
 }  
 .pantalla-iconos-tipos{
-    display: block;
+    display: none;
+}
+#busqueda-por-tipo{
+    display:none;
 }
 #tipos{
     display: grid;

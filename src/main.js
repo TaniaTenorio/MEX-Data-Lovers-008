@@ -57,7 +57,7 @@ const printordenar = () => {
   let ordenarData = ordenarPor.value;
   let name= "";
   let str = "";
-  if(ordenarData === ("ascendente" || "descencente")){
+  if(ordenarData === "ascendente" || "descendente"){
     name = "name";
   }
   else {

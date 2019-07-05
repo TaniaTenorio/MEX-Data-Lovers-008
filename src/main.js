@@ -81,54 +81,63 @@ ordenarPor.addEventListener("change", printordenar);
 let botonBuscarTipos=document.getElementById("tipo-pokemon");
 let botonBuscarDebilidad=document.getElementById("debilidad-pokemon");
 let pantallaTipos=document.getElementById("pantalla-iconos-tipos");
+let pantallaBuscar = document.getElementById("pantalla-buscar");
+let pantallaPrincipal = document.getElementById("pantalla-principal");
 
 const tipos = () =>{
   pantallaTipos.style.display="block";
+  pantallaBuscar.style.display = "none";
+
+  
 };
 botonBuscarTipos.addEventListener("click",tipos);
 botonBuscarDebilidad.addEventListener("click",tipos);
 
 //Funcion que imprime la data por tipo
 
-let printTipo = document.getElementById("busqueda-por-tipo");
-  //recorre los elementos de la misma clase y asigana el evento click
+let pantallaPrintTipo = document.getElementById("busqueda-por-tipo"); 
 let tipo = document.getElementsByClassName("iconos");
+
+//recorre los elementos de la misma clase y asigana el evento click
   for(let i=0; i<tipo.length; i++){
     
     tipo[i].addEventListener("click", printType = (e) => {
       if (!e) e= window.event;
+      let str = " ";
+      let resultado= " ";
       let condicion = e.target.id;
-      //console.log(condicion);
-      const resultado = window.filtrar(data,condicion);
+      //llama a la funcion Filtrar
+      resultado = window.filtrar(data,condicion);
+      //Imprime el resltado de la funcion Filtrar
+      resultado.forEach(element => {
+        str += `<li>
+        <img src="${element.img}">
+        <p><strong>Numero:</strong>${element.num}</p>
+        <p><strong>Nombre:</strong> ${element.name}</p>
+        </li> `;
+    });
+      pantallaPrintTipo.innerHTML = str; 
+      //Oculta la pantalla Tipos
+      pantallaTipos.style.display = "none";
+      pantallaPrintTipo.style.display= "block";
   });
-  //const resultado = window.filtrar(data,condicion);
-  //console.log(resultado);
-  //printTipo.innerHTML = resultado;
   }
+
+  //Boton de prueba que aparece seccion de buscar y desaparece pantalla principal
   let botonPrueba = document.getElementById("prueba");
   let myFunction = () => {
-    document.getElementById("pantalla-buscar").style.display = "block";
-    document.getElementById("pantalla-principal").style.display = "none";
+    pantallaBuscar.style.display = "block";
+    pantallaPrincipal.style.display = "none";
+    pantallaTipos.style.display = "none";
+    pantallaPrintTipo.style.display = "none";
   };
   botonPrueba.addEventListener("click",myFunction);
 
-  // data.forEach(pokemon => {
-    
-    
-  // //   let filtroPasto = dataTipos.filter(tipo => tipo === "Grass");
-  //   console.log(dataTipos);
-  // });
-  // const dataTipos = data[0].type;
+  //Funcion que oculta patalla buscar y muestra busqueda por tipos
   
-    let filtro = data.filter(pokemon => {
-      for( let i = 0; i < pokemon.type.length; i++){
-        if (pokemon.type[i]=== "Grass"){
-          return true;
-        }
-      }
-      return false;
-    });
-    console.log(filtro);
+
+
+    
   
   
 

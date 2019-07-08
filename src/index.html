@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
   </head>
   <body>
-    <div class="contenedor">
       <div class="main">
           <div class="ordenarPor">
               <label for="ordenar">Ordenar:</label>
@@ -67,8 +66,6 @@
         </section>
 
         <section class="pantalla-iconos-tipos" id="pantalla-iconos-tipos">
-          
-          <div id="tipos">
           <ul>
             <li class="iconos"><img src="Imagenes/Tipos/TipoAgua.png" id="Water"><p>Water</p></li>
             <li class="iconos"><img src="Imagenes/Tipos/tipoFuego.png" id="Fire">Fire</li>
@@ -86,16 +83,31 @@
             <li class="iconos"><img src="Imagenes/Tipos/TipoVeneno.png" id="Poison">Poison</li>
             <li class="iconos"><img src="Imagenes/Tipos/TipoInsecto.png" id="Bug">Bug</li>
             <li class="iconos"><img src="Imagenes/Tipos/TipoVolador.png" id="Flying">Flying</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoSiniestro.png" id="Dark">Dark</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoHada.png" id="Fairy">Fairy</li>
           </ul>
-        </div>
         </section>
 
-        <!--Pantalla que imprime la lista Ordenada en orden ascendente y descendente-->
-        <div id="pantalla-lista-ordenada">
-            <ul id="lista-ordenada"></ul>
-        </div>
+        <section class="pantalla-iconos-debilidades" id="pantalla-iconos-debilidades">
+          <ul>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoAgua.png" id="Water"><p>Water</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/tipoFuego.png" id="Fire">Fire</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPlanta.png" id="Grass">Grass</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoTierra.png" id="Ground">Ground</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoRoca.png" id="Rock">Rock</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoAcero.png" id="Steel">Steel</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoHielo.png" id="Ice">Ice</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoElectrico.png" id="Electric">Electric</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoDragon.png" id="Dragon">Dragon</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoFantasma.png" id="Ghost">Ghost</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPsiquico.png" id="Psychic">Psychic</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoNormal.png" id="Normal">Normal</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPelea.png" id="Fighting">Fighting</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoVeneno.png" id="Poison">Poison</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoInsecto.png" id="Bug">Bug</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoVolador.png" id="Flying">Flying</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoSiniestro.png" id="Dark">Dark</li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoHada.png" id="Fairy">Fairy</li>
+          </ul>
+        </section>
           <ul id="busqueda-por-tipo"></ul>
           <ul id="busqueda-por-debilidad"></ul>
 
@@ -103,8 +115,6 @@
         <div class="section3">
 
         </div>
-    
-    </div>
     
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="data.js"></script>

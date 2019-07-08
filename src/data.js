@@ -8,45 +8,41 @@
 window.example = example;*/
 
 
-//llama la data
-//let data = POKEMON;
-
-
-// const filter = () => {
-//   return filter;
-// }
-
-
-  // FUNCION QUE ORDENA 
+// FUNCION QUE ORDENA 
   let ordenar = (data,propiedad,orden) => {
     let resultado = {};
-    if(orden === "ascendente") {
+    if(orden === "ascendente" || orden === "numAscendente") {
     resultado = data.sort((a,b) => (a[propiedad] > b[propiedad] ? 1 : -1));
     } 
-    else if(orden === "descendente") {
+    else if(orden === "descendente" || orden === "numDescendente") {
     resultado = data.sort ((a,b) => (a[propiedad] > b[propiedad] ? -1 : 1));
     }
-    else if(orden === "numAscendente"){
-    resultado = data.sort((a,b) => (a[propiedad] > b[propiedad] ? 1 : -1));
-    }
-    else if (orden === "numDescendente"){
-    resultado = data.sort((a,b) => (a[propiedad] > b[propiedad] ? -1 : 1));
-    }
     return resultado;
-
 }
-  let filtrar = (data,condicion) => {
-    let filtro = data.filter(pokemon => {
-      for( let i = 0; i < pokemon.type.length; i++){
-        if (pokemon.type[i] === condicion){
-          return true;
-        }
+
+//Funcion que filtra por tipo
+let filterByType = (data,condicion) => {
+  let filtro = data.filter(pokemon => {
+    for( let i = 0; i < pokemon.type.length; i++){
+      if (pokemon.type[i] === condicion){
+        return true;
       }
-      return false;
-    });
-    return filtro;
-  }
+    }
+    return false;
+  });
+  return filtro;
+}
+
+//Funcion que filtra por debilidad
+
+let filterByWeaknesses = (data,condicion) => {
+  let filtro = data.filter(pokemon => {
+    return pokemon.weaknesses.find((arr) => arr === condicion);
+      })
+      return filtro;
+    }      
     
 
 window.ordenar= ordenar;
-window.filtrar = filtrar;
+window.filterByType = filterByType;
+window.filterByWeaknesses = filterByWeaknesses;

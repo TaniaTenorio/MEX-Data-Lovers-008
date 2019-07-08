@@ -2,6 +2,18 @@
 let data = POKEMON.pokemon;
 //llamar section donde se imprime la data
 let mostrar = document.getElementById('lista');
+let boton = document.getElementById('buscar-nombre');
+let inputNombre = document.getElementById('nombre-pokemon');
+let imprimirBusqueda = document.getElementById('result-busqueda-nombre');
+let ordenarPor = document.getElementById('ordenar');
+let botonBuscarTipos=document.getElementById("tipo-pokemon");
+let botonBuscarDebilidad=document.getElementById("debilidad-pokemon");
+let pantallaTipos=document.getElementById("pantalla-iconos-tipos");
+let pantallaBuscar = document.getElementById("pantalla-buscar");
+let pantallaPrintOrden = document.getElementById("pantalla-lista-ordenada");
+let imprimirOrden = document.getElementById("lista-ordenada");
+
+
 
 // funcion que imprime la data en la section1
       let imprimir = () =>{
@@ -20,12 +32,7 @@ let mostrar = document.getElementById('lista');
       imprimir();
 
 //funcion que busca por nombre del pokemon
-      let boton = document.getElementById('buscar-nombre');
-      let inputNombre = document.getElementById('nombre-pokemon');
-      let imprimirBusqueda = document.getElementById('result-busqueda-nombre');
-
-      let buscarNombre = () => {
-        
+      let buscarNombre = () => {       
         let texto= inputNombre.value.toLowerCase();
         for(let pokemon of data){
               let nombre = pokemon.name.toLowerCase();
@@ -35,9 +42,11 @@ let mostrar = document.getElementById('lista');
                   <p><strong>No.:</strong>${pokemon.num}</p>
                   <p><strong>Nombre:</strong> ${pokemon.name}</p>
                   <p><strong>Tipo:</strong>${pokemon.type}</p>
-                  <p><strong>Debilidad:</strong> ${pokemon.weaknesses}</p>
-                  <p><strong>Sig. Evolución:</strong> ${pokemon.next_evolution}</p>
-                  </li>`;
+                  <p><strong>Debilidad:</strong> ${pokemon.weaknesses}</p></li>`;
+                  let sigEvol = pokemon["next_evolution"];
+                  let properties = Object.keys(sigEvol);
+                  console.log(properties);
+                  `<p><strong>Sig. Evolución:</strong> ${pokemon.next_evolution.name}</p>`;                 
               }
           }
 
@@ -46,25 +55,20 @@ let mostrar = document.getElementById('lista');
 boton.addEventListener('click',buscarNombre);
 
 //Función que Imprime la Data Ordenada
-let ordenarPor = document.getElementById("ordenar");
-let imprimirOrden = document.getElementById("lista-ordenada");
-let pantallaPrintOrden = document.getElementById("pantalla-lista-ordenada");
-
-
 
 const printordenar = () => {
   
   let ordenarData = ordenarPor.value;
-  let name= "";
-  let str = "";
-  if(ordenarData === ("ascendente" || "descencente")){
-    name = "name";
+  let propiedad = " ";
+  let str = " ";
+  if(ordenarData === "ascendente" || ordenarData === "descendente"){
+    propiedad = "name";
   }
   else {
-    name = "num";
+    propiedad = "num";
   }
   //Llama la funcion pura Ordenar
-  const resultado = window.ordenar(data,name,ordenarData);
+  const resultado = window.ordenar(data,propiedad,ordenarData);
   //Imprime la data ordenada
   resultado.forEach(element => {
       str += `<li>
@@ -80,22 +84,13 @@ const printordenar = () => {
 };
 ordenarPor.addEventListener("change", printordenar);
 
-
-
-//Funcion que oculta patalla buscar y muestra busqueda por tipos
-//boton que se va a la lista de Tipos
-let botonBuscarTipos=document.getElementById("tipo-pokemon");
-let botonBuscarDebilidad=document.getElementById("debilidad-pokemon");
-let pantallaTipos=document.getElementById("pantalla-iconos-tipos");
-let pantallaBuscar = document.getElementById("pantalla-buscar");
-//let pantallaPrincipal = document.getElementById("pantalla-principal");
-
+//Funcion que oculta pantalla buscar y muestra busqueda por tipos
 const tipos = () =>{
   pantallaTipos.style.display="block";
   pantallaBuscar.style.display = "none";
 };
+//boton que se va a la lista de Tipos
 botonBuscarTipos.addEventListener("click",tipos);
-botonBuscarDebilidad.addEventListener("click",tipos);
 
 //Funcion que imprime la data por tipo
 
@@ -111,7 +106,7 @@ let tipo = document.getElementsByClassName("iconos");
       let resultado= " ";
       let condicion = e.target.id;
       //llama a la funcion Filtrar
-      resultado = window.filtrar(data,condicion);
+      resultado = window.filterByType(data,condicion);
       //Imprime el resltado de la funcion Filtrar
       resultado.forEach(element => {
         str += `<li>
@@ -127,6 +122,46 @@ let tipo = document.getElementsByClassName("iconos");
   });
   }
 
+  //Funcion que muestra pantalla debilidades y oculta pantalla de busqueda
+  const muestraDebilidades = () =>{
+    pantallaDebilidades.style.display="block";
+    pantallaBuscar.style.display = "none";
+  };
+
+  botonBuscarDebilidad.addEventListener("click",muestraDebilidades); 
+
+  //Funcion que imprime la Data por Debilidad
+  let pantallaDebilidades=document.getElementById("pantalla-iconos-debilidades");
+  let debilidad = document.getElementsByClassName("iconos-debilidad");
+  let pantallaPrintDebilidad = document.getElementById("busqueda-por-debilidad");
+  
+
+  //recorre los elementos de la misma clase y asigna el evento click
+  for(let i=0; i<debilidad.length; i++){
+    
+    debilidad[i].addEventListener("click", printweaknesses = (e) => {
+      if (!e) e= window.event;
+      let str = " ";
+      let resultado= " ";
+      let condicion = e.target.id;
+      //llama a la funcion Filtrar por Debilidad
+      resultado = window.filterByWeaknesses(data,condicion);
+      //Imprime el resultado de la funcion
+      resultado.forEach(element => {
+        str += `<li>
+        <img src="${element.img}">
+        <p><strong>Numero:</strong>${element.num}</p>
+        <p><strong>Nombre:</strong> ${element.name}</p>
+        </li> `;
+    });
+      pantallaPrintDebilidad.innerHTML = str; 
+      //Oculta la pantalla Tipos
+      pantallaDebilidades.style.display = "none";
+      pantallaPrintDebilidad.style.display= "block";
+  });
+  }
+
+
   //Boton de prueba que aparece seccion de buscar y desaparece pantalla principal
   let botonPrueba = document.getElementById("prueba");
   
@@ -136,6 +171,8 @@ let tipo = document.getElementsByClassName("iconos");
     pantallaTipos.style.display = "none";
     pantallaPrintTipo.style.display = "none";
     pantallaPrintOrden.style.display = "none";
+    pantallaDebilidades.style.display = "none";
+    pantallaPrintDebilidad.style.display = "none";
   };
   botonPrueba.addEventListener("click",myFunction);
 

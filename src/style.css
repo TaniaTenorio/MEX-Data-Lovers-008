@@ -3,9 +3,7 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-/*#contenedor{
-    display: block;
-}*/
+
 .main{
     background-color: yellow;
 }
@@ -131,9 +129,15 @@ text-align: center;
 .pantalla-iconos-tipos{
     display: none;
 }
+.pantalla-iconos-debilidades{
+    display: none;
+}
 #busqueda-por-tipo{
     display:none;
 
+}
+.lista-ordenada{
+    display: none;
 }
 #tipos{
     display: grid;

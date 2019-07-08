@@ -59,10 +59,12 @@ boton.addEventListener('click',buscarNombre);
 const printordenar = () => {
   
   let ordenarData = ordenarPor.value;
+
   let propiedad = " ";
   let str = " ";
   if(ordenarData === "ascendente" || ordenarData === "descendente"){
     propiedad = "name";
+
   }
   else {
     propiedad = "num";

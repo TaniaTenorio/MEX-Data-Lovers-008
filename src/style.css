@@ -7,7 +7,7 @@ body{
     display: grid;
     grid-template-columns: 9% 20% auto 20% 20% 9%;
     grid-template-rows: 20% 5% auto 10% 6%;
-    background: url(/src/Imagenes/Interfaz-pokéxpert.png) , #4c4c4c;
+    background: url(./Imagenes/Interfaz-pokéxpert.png) , #4c4c4c;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;

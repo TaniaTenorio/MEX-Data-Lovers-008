@@ -55,7 +55,7 @@ let imprimirOrden = document.getElementById("lista-ordenada");
                     <p><strong>No.:</strong>${sigEvolucion.num}</p>
                     <p><strong>Nombre:</strong>${sigEvolucion.name}</p>
                     <li>`;
-                    //console.log(sigEvolucion.name);
+
                   } )              
               }
           }
@@ -179,8 +179,8 @@ let tipo = document.getElementsByClassName("iconos");
     if (!e) e= window.event;
     let condicion = e.target.id;
     //llama a la funcion Filtrar por Debilidad
-    let dato = window.estadistica(data,condicion); 
-    console.log(dato);
+    let dato = window.estadistica(data,condicion);
+    console.log(dato); 
   });
   
 }

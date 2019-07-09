@@ -2,126 +2,150 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
-  </head>
+    <title>Pokéxpert</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Wendy+One&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4f820322b0.js"></script>
+</head>
   <body>
-      <div class="main">
-          <div class="ordenarPor">
-              <label for="ordenar">Ordenar:</label>
-              <select id="ordenar">
-                    <option readonly>-Seleccionar-</option>
-                    <option value="ascendente" >A-Z</option>
-                    <option value="descendente">Z-A</option>
-                    <option value="numAscendente">001-151</option>
-                    <option value="numDescendente">151-001</option>
-              </select> 
-          </div>
-          <!--Boton buscar (Lupita)-->
-          <button id="prueba">prueba</button>
+      <div class="titulo-pokedex">
+          <img src="/src/Imagenes/pokexpert.png" alt="Título Pokéxpert">
+      </div>
 
-          <!--contenedor de la imagen de pokedex-->
-          <div class="c-img">
-            <img src="Imagenes/Pokedex.png" class="img-Pokedex">
+     <div class="ordenar-por" id="ordenar-por">
+        <label for="ordenar" class="label-ordenar">Ordenar <i class="fas fa-sort"></i></label>
+        <select id="ordenar">
+            <option readonly>Seleccionar</option>
+            <option value="ascendente" >A-Z</option>
+            <option value="descendente">Z-A</option>
+            <option value="numAscendente">001-151</option>
+            <option value="numDescendente">151-001</option>
+        </select> 
+    </div>
 
-            <!--contenedor de la section1 donde se muestra la data-->
-            <div class="pantalla-principal" id="pantalla-principal">
-              <img src="Imagenes/pokexpert.png" class="titulo-pokexpert">
-              <div id="lista"></div>
-              </div><!--Aqui termina class "pantalla-principal-->
-              
-          </div><!--Aqui termina class "c-img!-->
-      </div><!--Aqui termina class "main"-->
+    <section class="pantalla-principal" id="pantalla-principal">
+    </section>
 
-            <!--contenedor de tipos de busqueda-->
-      <section id="pantalla-buscar" class="pantalla-buscar">
-          <h2>BUSCAR</h2>
-          <!--Busqueda por nombre-->
-          <div class="por-nombre">
-            <label for="nombre-pokemon">Por nombre:</label>
-            <input type="text" name="nombre" id="nombre-pokemon">
-            <button id="buscar-nombre">Busqueda</button>
-          </div>
-          <!--Busqueda por tipo-->
-          <div class="por-tipo">
-            <label for="tipo-pokemon">Por tipo:</label>
-            <button id="tipo-pokemon">Buscar</button>
-          </div>
-          <!--Busqueda por debilidad-->
-          <div class="por-debilidad">
-            <label for="debilidad-pokemon">Por debilidad:</label>
-            <button id="debilidad-pokemon">Buscar</button>
-          </div>
-      </section>
+    <div class="boton-curiosidades">
+      <button id="boton-curiosidades">Botón</button>
+    </div>
 
-          <!--Pantalla que imprime la lista Ordenada en orden ascendente y descendente-->
-          <div id="pantalla-lista-ordenada">
-              <ul id="lista-ordenada"></ul>
-          </div>
-          
-          <!--contenedor donde se muestra la busqueda por nombre-->
-        <section class="pantalla-result-busqueda-nombre" id="pantalla-result-busqueda-nombre">
-          <ul id="result-busqueda-nombre"></ul>
-        </section>
+    <div class="botones">
+        <button id="boton-buscar"><i class="fas fa-search fa-3x"></i></button>
+        <button id="boton-info"><i class="fas fa-info fa-3x"></i></button>
+        <button id="boton-regresar"><i class="fas fa-undo-alt fa-3x"></i></button>
+    </div>
 
-        <section class="pantalla-iconos-tipos" id="pantalla-iconos-tipos">
+    <section class="lista-ordenada" id="pantalla-ordenada">
+        <ul id="lista-ordenada"></ul>
+    </section>
+
+    <!--contenedor de tipos de busqueda-->
+    <section id="pantalla-buscar" class="pantalla-buscar">  
+            <h1>BUSCAR</h1>
+            <!--Busqueda por nombre-->
+            <div class="por-nombre">
+              <label for="nombre-pokemon" id="por-nombre">Por nombre:</label>
+              <input type="text" name="nombre" id="nombre-pokemon">
+              <button id="buscar-nombre"><i class="fas fa-search fa-3x"></i></button>
+            </div>
+            <!--Busqueda por tipo-->
+            <div class="por-tipo">
+              <label for="tipo-pokemon" id="por-tipo">Por tipo:</label>
+              <p><img src="/src/Imagenes/pokebola.png" alt="poxebola1" id="tipo-pokemon"></p>
+            </div>
+            <!--Busqueda por debilidad-->
+            <div class="por-debilidad">
+              <label for="debilidad-pokemon" id="por-debilidad">Por debilidad:</label>
+              <p><img src ="Imagenes/Pokebola2.png" id="debilidad-pokemon"></p>
+            </div>   
+    </section>
+
+    <!--pantalla que muestra resultado de búsqueda por nombre-->
+    <section class="pantalla-result-busqueda-nombre" id="pantalla-result-busqueda-nombre">
+         <ul id="result-busqueda-nombre"></ul>
+    </section>
+
+    <section class="pantalla-iconos-tipos" id="pantalla-iconos-tipos">
+        <div id="tipos">
           <ul>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoAgua.png" id="Water"><p>Water</p></li>
-            <li class="iconos"><img src="Imagenes/Tipos/tipoFuego.png" id="Fire">Fire</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoPlanta.png" id="Grass">Grass</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoTierra.png" id="Ground">Ground</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoRoca.png" id="Rock">Rock</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoAcero.png" id="Steel">Steel</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoHielo.png" id="Ice">Ice</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoElectrico.png" id="Electric">Electric</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoDragon.png" id="Dragon">Dragon</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoFantasma.png" id="Ghost">Ghost</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoPsiquico.png" id="Psychic">Psychic</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoNormal.png" id="Normal">Normal</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoPelea.png" id="Fighting">Fighting</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoVeneno.png" id="Poison">Poison</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoInsecto.png" id="Bug">Bug</li>
-            <li class="iconos"><img src="Imagenes/Tipos/TipoVolador.png" id="Flying">Flying</li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoAgua.png" id="Water"><p>Agua</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/tipoFuego.png" id="Fire"><p>Fuego</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoPlanta.png" id="Grass"><p>Planta</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoTierra.png" id="Ground"><p>Tierra</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoRoca.png" id="Rock"><p>Roca</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoAcero.png" id="Steel"><p>Acero</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoHielo.png" id="Ice"><p>Hielo</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoElectrico.png" id="Electric"><p>Eléctrico</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoDragon.png" id="Dragon"><p>Dragón</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoFantasma.png" id="Ghost"><p>Fantasma</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoPsiquico.png" id="Psychic"><p>Psíquico</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoNormal.png" id="Normal"><p>Normal</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoPelea.png" id="Fighting"><p>Pelea</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoVeneno.png" id="Poison"><p>Veneno</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoInsecto.png" id="Bug"><p>Insecto</p></li>
+            <li class="iconos"><img src="Imagenes/Tipos/TipoVolador.png" id="Flying"><p>Volador</p></li>
           </ul>
+        </div>
+    </section>
+
+    <section class="pantalla-iconos-debilidad" id="pantalla-iconos-debilidad">
+            <div id="debilidad">
+              <ul>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoAgua.png" id="Water"><p>Agua</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/tipoFuego.png" id="Fire"><p>Fuego</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPlanta.png" id="Grass"><p>Planta</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoTierra.png" id="Ground"><p>Tierra</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoRoca.png" id="Rock"><p>Roca</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoAcero.png" id="Steel"><p>Acero</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoHielo.png" id="Ice"><p>Hielo</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoElectrico.png" id="Electric"><p>Eléctrico</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoDragon.png" id="Dragon"><p>Dragón</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoFantasma.png" id="Ghost"><p>Fantasma</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPsiquico.png" id="Psychic"><p>Psíquico</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoNormal.png" id="Normal"><p>Normal</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPelea.png" id="Fighting"><p>Pelea</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoVeneno.png" id="Poison"><p>Veneno</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoInsecto.png" id="Bug"><p>Insecto</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoVolador.png" id="Flying"><p>Volador</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoSiniestro.png" id="Dark"><p>Siniestro</p></li>
+                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoHada.png" id="Fairy"><p>Hada</p></li>
+              </ul>
+            </div>
         </section>
 
-        <section class="pantalla-iconos-debilidades" id="pantalla-iconos-debilidades">
-          <ul>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoAgua.png" id="Water"><p>Water</p></li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/tipoFuego.png" id="Fire">Fire</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPlanta.png" id="Grass">Grass</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoTierra.png" id="Ground">Ground</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoRoca.png" id="Rock">Rock</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoAcero.png" id="Steel">Steel</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoHielo.png" id="Ice">Ice</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoElectrico.png" id="Electric">Electric</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoDragon.png" id="Dragon">Dragon</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoFantasma.png" id="Ghost">Ghost</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPsiquico.png" id="Psychic">Psychic</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoNormal.png" id="Normal">Normal</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPelea.png" id="Fighting">Fighting</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoVeneno.png" id="Poison">Poison</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoInsecto.png" id="Bug">Bug</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoVolador.png" id="Flying">Flying</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoSiniestro.png" id="Dark">Dark</li>
-            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoHada.png" id="Fairy">Fairy</li>
-          </ul>
-        </section>
-          <ul id="busqueda-por-tipo"></ul>
-          <ul id="busqueda-por-debilidad"></ul>
+<!--Pantalla que muestra los pokemon de cierto tipo-->
+    <section class="pantalla-resultado-tipo" id="pantalla-resultado-tipo">
+        <ul id="busqueda-por-tipo"></ul>
+    </section>
 
-      </section>
-        <div class="section3">
-          <h4>Curiosidades de tus Pokemon, ¿Sabes la respuesta?</h4>
+<!--Pantalla que muestra los pokemon con cierta debilidad-->    
+    <section class="pantalla-resultado-debilidad" id="pantalla-resultado-debilidad">
+         <ul id="busqueda-por-debilidad"></ul>
+    </section>
+
+    <section class="pantalla-info" id="pantalla-info">
+        <div class="texto-info">
+            <h1>¡Bienvenid@ a Pokéxpert!</h1>
+            <p>Aquí podras consultar información básica de los Pokémon para empezar a formar parte de este grandioso Universo</p>
+            <p>Tú decides, si qiueres buscarlo por tipo, por nombre, o según sus debilidades</p>
+            <p>Si no buscas ninguno en específico, siempre puedes regresar a la página principal para ver el listado completo de Pokémon</p>
+            <p>No olvides visitar nuestra secciones de datos curiosos</p>
+        </div>
+    </section>
+
+    <section class="pantalla-curiosidades" id="pantalla-curiosidades">
+      <div class ="preguntas">
+          <h1>Curiosidades de tus Pokemon, ¿Sabes la respuesta?</h1>
           <p>¿Cual es el Pokemon mas pesado?</p>
           <button id="weight" class="estadistica">Respuesta 1</button>
           <p>¿Cual es el Pokemon mas alto?</p>
           <button id="height" class="estadistica">Respuesta 2</button>
           <p>¿En promedio cuantos dulces necesita un Pokemon para poder Evolucionar?</p>
           <button id="candy_count" class="estadistica">Respuesta 3</button>
-        </div>
-
+      </div>
+    </section>
     
     <script src="./data/pokemon/pokemon.js"></script>
     <script src="data.js"></script>

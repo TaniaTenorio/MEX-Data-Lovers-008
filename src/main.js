@@ -16,7 +16,7 @@ let imprimirOrden = document.getElementById("lista-ordenada");
 
 
 // funcion que imprime la data en la section1
-      let imprimir = () =>{
+      let imprimir = (data) =>{
           mostrar.innerHTML = '';
           let template='';
         for(let pokemon of data){
@@ -29,28 +29,39 @@ let imprimirOrden = document.getElementById("lista-ordenada");
         }
       mostrar.innerHTML=`<ul>${template}</ul>`
       };
-      imprimir();
+      imprimir(data);
 
 //funcion que busca por nombre del pokemon
       let buscarNombre = () => {       
         let texto= inputNombre.value.toLowerCase();
-        for(let pokemon of data){
-              let nombre = pokemon.name.toLowerCase();
+        let imprimirInfo = "";        
+    for (const key in data) {
+        if (data.hasOwnProperty(key)) {
+            const element = data[key];
+            //Guarda los nombres de la data en la variable nombre
+            let nombre = element.name.toLowerCase();
+            //compara si el nombre es igual al que escribe el usuario
               if(nombre.indexOf(texto) !== -1){
-                  imprimirBusqueda.innerHTML = `<li>
-                  <img src="${pokemon.img}">
-                  <p><strong>No.:</strong>${pokemon.num}</p>
-                  <p><strong>Nombre:</strong> ${pokemon.name}</p>
-                  <p><strong>Tipo:</strong>${pokemon.type}</p>
-                  <p><strong>Debilidad:</strong> ${pokemon.weaknesses}</p></li>`;
-                  let sigEvol = pokemon["next_evolution"];
-                  let properties = Object.keys(sigEvol);
-                  console.log(properties);
-                  `<p><strong>Sig. Evolución:</strong> ${pokemon.next_evolution.name}</p>`;                 
+                  imprimirInfo += `<li>
+                  <img src="${element.img}">
+                  <p><strong>No.:</strong>${element.num}</p>
+                  <p><strong>Nombre:</strong> ${element.name}</p>
+                  <p><strong>Tipo:</strong>${element.type}</p>
+                  <p><strong>Debilidad:</strong>${element.weaknesses}</p></li>`;
+
+                  element.next_evolution.forEach(sigEvolucion =>{
+                    imprimirInfo += `<li>
+                    <p><strong>Siguiente Evolucion:</strong></p>
+                    <p><strong>No.:</strong>${sigEvolucion.num}</p>
+                    <p><strong>Nombre:</strong>${sigEvolucion.name}</p>
+                    <li>`;
+                    //console.log(sigEvolucion.name);
+                  } )              
               }
           }
 
-      };
+      } imprimirBusqueda.innerHTML =imprimirInfo;
+    };
 
 boton.addEventListener('click',buscarNombre);
 
@@ -99,7 +110,7 @@ botonBuscarTipos.addEventListener("click",tipos);
 let pantallaPrintTipo = document.getElementById("busqueda-por-tipo"); 
 let tipo = document.getElementsByClassName("iconos");
 
-//recorre los elementos de la misma clase y asigana el evento click
+//recorre los elementos de la misma clase y asigna el evento click
   for(let i=0; i<tipo.length; i++){
     
     tipo[i].addEventListener("click", printType = (e) => {
@@ -162,6 +173,23 @@ let tipo = document.getElementsByClassName("iconos");
       pantallaPrintDebilidad.style.display= "block";
   });
   }
+
+  //Funcion que imprime la estadistica
+  let respuesta = document.getElementsByClassName("estadistica");
+  for(let i=0; i<respuesta.length; i++){
+  respuesta[i].addEventListener("click",printAnswer = (e) => {
+    if (!e) e= window.event;
+    let condicion = e.target.id;
+    //llama a la funcion Filtrar por Debilidad
+    let dato = window.estadistica(data,condicion); 
+    console.log(dato);
+  });
+  
+}
+
+
+
+
 
 
   //Boton de prueba que aparece seccion de buscar y desaparece pantalla principal

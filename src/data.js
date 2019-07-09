@@ -41,8 +41,24 @@ let filterByWeaknesses = (data,condicion) => {
       })
       return filtro;
     }      
-    
+
+//Funcion que muestra Pokemon mas gordo =)
+let estadistica = (data,propiedad) => {
+  if(propiedad === "weight" || propiedad === "height"){
+    return result = data.sort((a,b) => (a[propiedad] > b[propiedad] ? -1 : 1));
+  }
+  else if(propiedad === "candy_count"){
+       return result = data.reduce(function(a,b){ return a + b.propiedad;});
+
+       //console.log(arrSum);
+      
+    }
+    //console.log(result);
+    //return result;
+  } 
+
 
 window.ordenar= ordenar;
 window.filterByType = filterByType;
 window.filterByWeaknesses = filterByWeaknesses;
+window.estadistica = estadistica;

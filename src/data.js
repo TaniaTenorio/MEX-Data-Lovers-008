@@ -18,7 +18,7 @@ window.example = example;*/
     resultado = data.sort ((a,b) => (a[propiedad] > b[propiedad] ? -1 : 1));
     }
     return resultado;
-}
+};
 
 //Funcion que filtra por tipo
 let filterByType = (data,condicion) => {
@@ -31,7 +31,7 @@ let filterByType = (data,condicion) => {
     return false;
   });
   return filtro;
-}
+};
 
 //Funcion que filtra por debilidad
 
@@ -40,7 +40,7 @@ let filterByWeaknesses = (data,condicion) => {
     return pokemon.weaknesses.find((arr) => arr === condicion);
       })
       return filtro;
-    }      
+    };      
 
 //Funcion que calcula las estadisticas
 let estadistica = (data,propiedad) => {

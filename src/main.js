@@ -180,9 +180,11 @@ let tipo = document.getElementsByClassName("iconos");
     let condicion = e.target.id;
     //llama a la funcion Filtrar por Debilidad
     let dato = window.estadistica(data,condicion); 
-    console.log(dato[0]);   
+    console.log(dato);
   });
+  
 }
+
 
 
 

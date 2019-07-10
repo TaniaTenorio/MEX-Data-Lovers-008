@@ -42,7 +42,7 @@ let filterByWeaknesses = (data,condicion) => {
       return filtro;
     };      
 
-//Funcion que calcula las estadisticas
+//Funcion datos curiosos
 let estadistica = (data,propiedad) => {
   //el mas pesado y el mas alto
   if(propiedad === "weight" || propiedad === "height"){
@@ -51,20 +51,13 @@ let estadistica = (data,propiedad) => {
   }
   //promedio de candy_count para evolucionar
   else if(propiedad === "candy_count"){
-    
        let result = data.reduce((total,item)=>{
-         //console.log(total)
-         //console.log(item)
-         //console.log(propiedad)
-         //console.log(item[propiedad]);
          if (data.hasOwnProperty(item.candy_count)){
           return total + item.candy_count;
          }
           return  total + 0;
         },0)
-        return (result/151);
-        
-      
+        return (result/151);   
     }
   } 
 

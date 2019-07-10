@@ -372,6 +372,29 @@ select{
     text-align: center;
     background-color: #5f5d5d;
     border-radius: 2%;
-    height: 70%;
+    height: 80%;
     padding: 5vh;
+}
+.preguntas{
+    font-size: 1.5rem;
+}
+.preguntas img{
+    width: 7vh;
+}
+.preguntas ul li, .preguntas p{
+    list-style: none;
+    color: yellow;
+}
+#weight{
+    display: block;
+}
+#height, #candy_count{
+    display: none;
+}
+
+#respuesta-uno, #respuesta-dos, #respuesta-tres, #pregunta-dos, #pregunta-tres, #siguiente-promedio-candy{
+    display: none;
+}
+.estadistica{
+    display: flex;
 }

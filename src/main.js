@@ -1,5 +1,5 @@
 
-let data = POKEMON.pokemon;
+let data = window.POKEMON.pokemon;
 let labelOrdenar = document.getElementById("ordenar-por");
 let pantallaPrincipal = document.getElementById("pantalla-principal");
 let mostrar = document.getElementById('pantalla-principal');
@@ -58,7 +58,7 @@ const printordenar = () => {
   else {
     propiedad = "num";
   }
-  const resultado = window.ordenar(data,propiedad,ordenarData);
+  const resultado = window.pokemon.ordenar(data,propiedad,ordenarData);
   
   //usar la funcion que imprime la data ****** PENDIENTE
   resultado.forEach(element => {
@@ -107,14 +107,14 @@ botonBuscarTipos.addEventListener("click",tipos);
 //Funcion que imprime la data por tipo
 //recorre los elementos de la misma clase y asigana el evento click
   for(let i=0; i<tipo.length; i++){
-    
-    tipo[i].addEventListener("click", printType = (e) => {
+
+    tipo[i].addEventListener("click", (e) => {
       if (!e) e= window.event;
       let str = " ";
       let resultado= " ";
       let condicion = e.target.id;
       //llama a la funcion Filtrar
-      resultado = window.filterByType(data,condicion);
+      resultado = window.pokemon.filterByType(data,condicion);
       //Imprime el resltado de la funcion Filtrar
       resultado.forEach(element => {
         str += `<li>
@@ -132,13 +132,13 @@ botonBuscarTipos.addEventListener("click",tipos);
   //recorre los elementos de la misma clase y asigna el evento click
   for(let i=0; i<debilidad.length; i++){
     
-    debilidad[i].addEventListener("click", printWeaknesses = (e) => {
+    debilidad[i].addEventListener("click",(e) => {
       if (!e) e= window.event;
       let str = " ";
       let resultado= " ";
       let condicion = e.target.id;
       //llama a la funcion Filtrar por Debilidad
-      resultado = window.filterByWeaknesses(data,condicion);
+      resultado = window.pokemon.filterByWeaknesses(data,condicion);
       //Imprime el resultado de la funcion
       resultado.forEach(element => {
         str += `<li>
@@ -156,11 +156,12 @@ botonBuscarTipos.addEventListener("click",tipos);
 //Funcion que imprime la estadistica
 let respuesta = document.getElementsByClassName("estadistica");
 for(let i=0; i<respuesta.length; i++){
-respuesta[i].addEventListener("click",printAnswer = (e) => {
+
+respuesta[i].addEventListener("click",(e) => {
   if (!e) e= window.event;
   let condicion = e.target.id;
   //llama a la funcion Filtrar por Debilidad
-  let dato = window.estadistica(data,condicion); 
+  let dato = window.pokemon.estadistica(data,condicion); 
   console.log(dato);
 });
 }

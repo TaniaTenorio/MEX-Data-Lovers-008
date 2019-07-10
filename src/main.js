@@ -28,23 +28,45 @@ let debilidad = document.getElementsByClassName("iconos-debilidad");
 let pantallaPrintDebilidad = document.getElementById("pantalla-resultado-debilidad");
 let resultadoBuscarDebilidad = document.getElementById("busqueda-por-debilidad");
 
+let botonRespuestaUno = document.getElementById("weight");
+let botonRespuestaDos = document.getElementById("height");
+let botonRespuestaTres = document.getElementById("candy_count");
+
+let botonSiguiente = document.getElementById("siguiente-mas-alto");
+let botonSiguientePromedio = document.getElementById("siguiente-promedio-candy");
+
+let preguntaUno = document.getElementById("pregunta-uno");
+let preguntaDos = document.getElementById("pregunta-dos");
+let preguntaTres = document.getElementById("pregunta-tres");
+
+let imprimirRespuestaUno = document.getElementById("respuesta-uno");
+let imprimirRespuestaDos = document.getElementById("respuesta-dos");
+let imprimirRespuestaTres = document.getElementById("respuesta-tres");
+
+
+//Funcion especifica para Imprimir cualquier data
+let imprimir= (data) => {
+  let template='';
+  for(let pokemon of data){
+      //mostrar.innerHTML += `<ul><li>
+      template +=`<li>
+      <img src="${pokemon.img}">
+      <p><strong>No.</strong>${pokemon.num}</p>
+      <p><strong>Nombre:</strong> ${pokemon.name}</p>
+      </li>`;
+  }
+  return template;
+}
 
 // funcion que imprime toda la data en la section1
-let imprimir = () =>{
+let imprimirData = () =>{
     //llamar section donde se imprime la data
     mostrar.innerHTML = '';
-    let template='';
-  for(let pokemon of data){
-    //mostrar.innerHTML += `<ul><li>
-    template +=`<li>
-    <img src="${pokemon.img}">
-    <p><strong>No.</strong>${pokemon.num}</p>
-    <p><strong>Nombre:</strong> ${pokemon.name}</p>
-    </li>`;
-  }
-mostrar.innerHTML=`<ul>${template}</ul>`;
+    let template = imprimir(data);
+    mostrar.innerHTML=`<ul>${template}</ul>`;
 };
-imprimir();
+imprimirData();
+
 
 //Función que filtra la data ordenada
 const printordenar = () => {
@@ -59,18 +81,10 @@ const printordenar = () => {
     propiedad = "num";
   }
   const resultado = window.ordenar(data,propiedad,ordenarData);
-  
-  //usar la funcion que imprime la data ****** PENDIENTE
-  resultado.forEach(element => {
-      str += `<li>
-      <img src="${element.img}">
-      <p><strong>No.</strong> ${element.num}</p>
-      <p><strong>Nombre:</strong> ${element.name}</p>
-      </li> `;
-  });
-imprimirOrden.innerHTML=str;
-pantallaOrdenada.style.display="block";
-pantallaPrincipal.style.display="none";
+  str = imprimir(resultado);
+  imprimirOrden.innerHTML=str;
+  pantallaOrdenada.style.display="block";
+  pantallaPrincipal.style.display="none";
 };
 ordenarPor.addEventListener("change", printordenar);
 
@@ -116,22 +130,18 @@ botonBuscarTipos.addEventListener("click",tipos);
       //llama a la funcion Filtrar
       resultado = window.filterByType(data,condicion);
       //Imprime el resltado de la funcion Filtrar
-      resultado.forEach(element => {
-        str += `<li>
-        <img src="${element.img}">
-        <p><strong>No.</strong> ${element.num}</p>
-        <p><strong>Nombre:</strong> ${element.name}</p>
-        </li> `;
+        str = imprimir(resultado);
+        resultadoBuscarTipo.innerHTML = str; 
+        //Oculta la pantalla Tipos
+        pantallaTipos.style.display = "none";
+        pantallaPrintTipo.style.display= "block";
     });
-    resultadoBuscarTipo.innerHTML = str; 
-      //Oculta la pantalla Tipos
-      pantallaTipos.style.display = "none";
-      pantallaPrintTipo.style.display= "block";
-  });
   }
+
+
+  //Funcion que imprime la data por debilidad
   //recorre los elementos de la misma clase y asigna el evento click
   for(let i=0; i<debilidad.length; i++){
-    
     debilidad[i].addEventListener("click", printWeaknesses = (e) => {
       if (!e) e= window.event;
       let str = " ";
@@ -140,30 +150,56 @@ botonBuscarTipos.addEventListener("click",tipos);
       //llama a la funcion Filtrar por Debilidad
       resultado = window.filterByWeaknesses(data,condicion);
       //Imprime el resultado de la funcion
-      resultado.forEach(element => {
-        str += `<li>
-        <img src="${element.img}">
-        <p><strong>No.</strong> ${element.num}</p>
-        <p><strong>Nombre:</strong> ${element.name}</p>
-        </li> `;
-    });
+      str = imprimir(resultado);
       resultadoBuscarDebilidad.innerHTML = str; 
       //Oculta la pantalla Tipos
       pantallaDebilidad.style.display = "none";
       pantallaPrintDebilidad.style.display= "block";
-  });
+    });     
   }
-//Funcion que imprime la estadistica
+
+
+
+
+//Funcion que imprime las curiosidades
 let respuesta = document.getElementsByClassName("estadistica");
 for(let i=0; i<respuesta.length; i++){
 respuesta[i].addEventListener("click",printAnswer = (e) => {
   if (!e) e= window.event;
   let condicion = e.target.id;
   //llama a la funcion Filtrar por Debilidad
-  let dato = window.estadistica(data,condicion); 
-  console.log(dato);
+  let dato = window.estadistica(data,condicion);
+  if(condicion === "weight"){
+    imprimirRespuestaUno.innerHTML = `<li>
+    <img src="${dato.img}">
+    <p><strong>No.</strong> ${dato.num}</p>
+    <p><strong>Nombre:</strong> ${dato.name}</p>
+    <p><strong>Peso:</strong> ${dato.weight}</p>
+    </li> `;
+    imprimirRespuestaUno.style.display = "block";
+    botonRespuestaUno.style.display = "none";
+    }
+  else if(condicion === "height"){
+    imprimirRespuestaDos.innerHTML = `<li>
+    <img src="${dato.img}">
+    <p><strong>No.</strong> ${dato.num}</p>
+    <p><strong>Nombre:</strong> ${dato.name}</p>
+    <p><strong>Nombre:</strong> ${dato.height}</p>
+    </li> `;
+    imprimirRespuestaDos.style.display = "block";
+    botonRespuestaDos.style.display ="none";
+    botonSiguiente.style.display = "none";
+    botonSiguientePromedio.style.display = "block";
+  }
+  else if(condicion === "candy_count"){
+    imprimirRespuestaTres.innerHTML = `Se necesitan en promedio: ${dato} Candy´s`;
+    imprimirRespuestaTres.style.display = "block";
+    botonRespuestaTres.style.display = "none";
+  }
 });
-}
+
+  }
+
   //Función que muestra pantalla de debilidades y oculta pantalla de búsqueda
   const muestraDebilidades = () =>{
     pantallaTipos.style.display="none";
@@ -201,8 +237,43 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
       pantallaBuscar.style.display = "none";
       pantallaInfo.style.display = "none";
       pantallaDebilidad.style.display = "none";
+      imprimirRespuestaUno.style.display = "none";
+      botonRespuestaUno.style.display = "block";
+      imprimirRespuestaDos.style.display = "none";
+      preguntaDos.style.display = "none";
+      botonRespuestaDos.style.display = "none";
+      preguntaUno.style.display = "block";
+      botonSiguientePromedio.style.display = "none";
+      botonSiguiente.style.display = "block";
+      imprimirRespuestaTres.style.display = "none";
+      preguntaTres.style.display = "none";
+      imprimirRespuestaTres.style.display = "none";
+
   };
   botonCuriosidades.addEventListener ("click", curiosidades);
+
+  let masAlto = () => {
+    preguntaUno.style.display = "none";
+    imprimirRespuestaUno.style.display = "none";
+    preguntaDos.style.display= "block";
+    botonRespuestaDos.style.display = "block";
+    botonSiguientePromedio.style.display = "block";
+    botonSiguiente.style.display = "none";
+    botonRespuestaUno.style.display = "none";
+  }
+  botonSiguiente.addEventListener("click", masAlto)
+
+  let promCandy = () => {
+    preguntaDos.style.display= "none";
+    imprimirRespuestaDos.style.display = "none";
+    botonSiguiente.style.display ="none";
+    botonSiguientePromedio.style.display = "none";
+    preguntaTres.style.display = "block";
+    botonRespuestaTres.style.display = "block";
+    botonRespuestaDos.style.display = "none";
+
+  }
+  botonSiguientePromedio.addEventListener("click", promCandy)
   
   let infoFunction = () => {
       pantallaInfo.style.display ="block";
@@ -230,6 +301,16 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
       pantallaCuriosidades.style.display = "none";
   };
   botonRegresar.addEventListener("click", regresar);
+
+
+  //usar la funcion que imprime la data ****** PENDIENTE
+  /*resultado.forEach(element => {
+      str += `<li>
+      <img src="${element.img}">
+      <p><strong>No.</strong> ${element.num}</p>
+      <p><strong>Nombre:</strong> ${element.name}</p>
+      </li> `;
+  });*/
 
   
   

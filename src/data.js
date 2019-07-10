@@ -42,23 +42,19 @@ let filterByWeaknesses = (data,condicion) => {
       return filtro;
     };      
 
-//Funcion datos curiosos
+//Funcion que muestra Pokemon mas gordo =)
 let estadistica = (data,propiedad) => {
-  //el mas pesado y el mas alto
   if(propiedad === "weight" || propiedad === "height"){
-    let result = data.sort((a,b) => (a[propiedad] > b[propiedad] ? -1 : 1));
-    return result[0];
+    return result = data.sort((a,b) => (a[propiedad] > b[propiedad] ? -1 : 1));
   }
-  //promedio de candy_count para evolucionar
   else if(propiedad === "candy_count"){
-       let result = data.reduce((total,item)=>{
-         if (data.hasOwnProperty(item.candy_count)){
-          return total + item.candy_count;
-         }
-          return  total + 0;
-        },0)
-        return (result/151);   
+       return result = data.reduce(function(a,b){ return a + b.propiedad;});
+
+       //console.log(arrSum);
+      
     }
+    //console.log(result);
+    //return result;
   } 
 
 

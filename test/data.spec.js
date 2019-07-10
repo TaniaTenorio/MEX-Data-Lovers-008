@@ -1,12 +1,20 @@
-require('../src/data.js');
+// eslint-disable-next-line no-unused-vars
+const pokemon = require('../src/data.js');
 
-
-describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example.sort).toBe('function');
+describe("pokemon", () => {
+  it("is an object", () => {
+    expect  (typeof pokemon).toBe("object");
   });
+});
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+describe('pokemon.ordenar', () => {
+  it('is a function', () => {
+    expect(typeof window.pokemon.ordenar).toBe('function');
+  });
+});
+
+describe("pokemon.filterByType", () => {
+  it("is an object", () => {
+    expect(typeof window.pokemon.ordenar).toBe("function");
   });
 });

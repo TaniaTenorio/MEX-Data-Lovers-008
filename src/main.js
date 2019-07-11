@@ -283,7 +283,7 @@ respuesta[i].addEventListener("click",(e) => {
     botonRespuestaTres.style.display = "block";
     botonRespuestaDos.style.display = "none";
 
-  }
+  };
   botonSiguientePromedio.addEventListener("click", promCandy)
   
   let infoFunction = () => {
@@ -310,6 +310,8 @@ respuesta[i].addEventListener("click",(e) => {
       pantallaInfo.style.display = "none";
       pantallaDebilidad.style.display = "none";
       pantallaCuriosidades.style.display = "none";
+      botonRegresar.style.display = "none";
+      botonInfo.style.display = "block";
   };
   botonRegresar.addEventListener("click", regresar);
 

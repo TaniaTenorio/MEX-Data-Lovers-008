@@ -44,7 +44,7 @@ filterByWeaknesses : (data,condicion) => {
 
 
 //Funcion datos curiosos
-let estadistica = (data,propiedad) => {
+estadistica : (data,propiedad) => {
   //el mas pesado y el mas alto
   if(propiedad === "weight" || propiedad === "height"){
     let result = data.sort((a,b) => (a[propiedad] > b[propiedad] ? -1 : 1));
@@ -58,10 +58,11 @@ let estadistica = (data,propiedad) => {
           return total + item.candy_count;
          }
           return  total + 0;
-        },0)
+        },0);
         return (result/151);   
     }
-  } 
+  }
+};
 
 
 // window.ordenar= ordenar;

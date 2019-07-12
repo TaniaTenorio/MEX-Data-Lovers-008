@@ -56,7 +56,7 @@ let imprimir= (data) => {
       </li>`;
   }
   return template;
-}
+};
 
 // funcion que imprime toda la data en la section1
 let imprimirData = () =>{
@@ -134,6 +134,7 @@ botonBuscarTipos.addEventListener("click",tipos);
       //Imprime el resltado de la funcion Filtrar
         str = imprimir(resultado);
         resultadoBuscarTipo.innerHTML = str; 
+        console.log(resultado);
         //Oculta la pantalla Tipos
         pantallaTipos.style.display = "none";
         pantallaPrintTipo.style.display= "block";
@@ -271,8 +272,8 @@ respuesta[i].addEventListener("click",(e) => {
     botonSiguientePromedio.style.display = "block";
     botonSiguiente.style.display = "none";
     botonRespuestaUno.style.display = "none";
-  }
-  botonSiguiente.addEventListener("click", masAlto)
+  };
+  botonSiguiente.addEventListener("click", masAlto);
 
   let promCandy = () => {
     preguntaDos.style.display= "none";
@@ -284,7 +285,7 @@ respuesta[i].addEventListener("click",(e) => {
     botonRespuestaDos.style.display = "none";
 
   };
-  botonSiguientePromedio.addEventListener("click", promCandy)
+  botonSiguientePromedio.addEventListener("click", promCandy);
   
   let infoFunction = () => {
       pantallaInfo.style.display ="block";

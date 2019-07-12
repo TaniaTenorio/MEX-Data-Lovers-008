@@ -42,6 +42,7 @@ let preguntaTres = document.getElementById("pregunta-tres");
 let imprimirRespuestaUno = document.getElementById("respuesta-uno");
 let imprimirRespuestaDos = document.getElementById("respuesta-dos");
 let imprimirRespuestaTres = document.getElementById("respuesta-tres");
+let imgCandy = document.getElementById("img-candy");
 
 
 //Funcion especifica para Imprimir cualquier data
@@ -97,16 +98,19 @@ let buscarNombre = () => {
         if(nombre.indexOf(texto) !== -1){
             imprimirBusqueda.innerHTML = `<li>
             <img src="${pokemon.img}">
-            <p><strong>No.</strong> ${pokemon.num}</p>
-            <p><strong>Nombre:</strong> ${pokemon.name}</p>
-            <p><strong>Tipo:</strong> ${pokemon.type}</p>
-            <p><strong>Debilidad:</strong> ${pokemon.weaknesses}</p>
-            <p><strong>Sig. Evolución:</strong> ${pokemon.next_evolution}</p>
+            <p><strong>No. </strong> ${pokemon.num}</p>
+            <p><strong>Nombre: </strong> ${pokemon.name}</p>
+            <p><strong>Tipo: </strong> ${pokemon.type}</p>
+            <p><strong>Debilidad: </strong> ${pokemon.weaknesses}</p>
+            <p><strong>Sig. Evolución:</strong> 
+            <p><strong>No. </strong>${pokemon.next_evolution[0].num}</p>
+            <p><strong>Nombre: </strong> ${pokemon.next_evolution[0].name}</p>
             </li>`;
         }
     }
     pantallaBuscar.style.display = "none";
     pantallaResultNombre.style.display = "block";
+    seccionEstadistica.style.display = "none";
 };
 botonBuscarNombre.addEventListener('click',buscarNombre);
 
@@ -119,9 +123,13 @@ const tipos = () =>{
 botonBuscarTipos.addEventListener("click",tipos);
 
 //Funcion que imprime la data por tipo
-//recorre los elementos de la misma clase y asigana el evento click
-  for(let i=0; i<tipo.length; i++){
-    
+let imprimeEstadistica = document.getElementById("resultado-estadistica");
+let botonEstadistica = document.getElementById("muestra-estadistica-tipo");
+//es la que se debe ocultar y mostrar
+let seccionEstadistica = document.getElementById("pantalla-estadistica"); 
+
+//recorre los elementos de la misma clase y asigna el evento click
+  for(let i=0; i<tipo.length; i++){   
     tipo[i].addEventListener("click", printType = (e) => {
       if (!e) e= window.event;
       let str = " ";
@@ -132,13 +140,26 @@ botonBuscarTipos.addEventListener("click",tipos);
       //Imprime el resltado de la funcion Filtrar
         str = imprimir(resultado);
         resultadoBuscarTipo.innerHTML = str; 
-        //Oculta la pantalla Tipos
-        pantallaTipos.style.display = "none";
-        pantallaPrintTipo.style.display= "block";
+      //Calcula el porcentajez 
+      let porcentajeTipo = Math.round((resultado.length * 100) / 151);
+      imprimeEstadistica.innerHTML = `<p>El porcentaje de Pokemon</p>
+      <p>de tipo ${condicion} es ${porcentajeTipo} %</p>`
+      //Oculta la pantalla Tipos
+      pantallaTipos.style.display = "none";
+      //Imprime los pokemon por tipo
+      pantallaPrintTipo.style.display= "block";
     });
-  }
+  } 
+
+  botonEstadistica.addEventListener("click", PorcentajeTipo = () => {
+    seccionEstadistica.style.display = "block";
+    pantallaPrintTipo.style.display= "none";
+
+  });
 
 
+
+  let botonEstadisticaDebilidad = document.getElementById("muestra-estadistica-debilidad");
   //Funcion que imprime la data por debilidad
   //recorre los elementos de la misma clase y asigna el evento click
   for(let i=0; i<debilidad.length; i++){
@@ -152,13 +173,24 @@ botonBuscarTipos.addEventListener("click",tipos);
       //Imprime el resultado de la funcion
       str = imprimir(resultado);
       resultadoBuscarDebilidad.innerHTML = str; 
+      //Calcula el porcentajez 
+      let porcentajeTipo = Math.round((resultado.length * 100) / 151);
+      imprimeEstadistica.innerHTML = `<p>El porcentaje de los Pokemon</p>
+      <p>debiles a los Tipo ${condicion} es:
+       ${porcentajeTipo} %</p>`
       //Oculta la pantalla Tipos
       pantallaDebilidad.style.display = "none";
       pantallaPrintDebilidad.style.display= "block";
     });     
   }
 
+  botonEstadisticaDebilidad.addEventListener("click", PorcentajeDebilidad = () => {
+    seccionEstadistica.style.display = "block";
+    pantallaPrintDebilidad.style.display= "none";
 
+  })
+
+  
 
 
 //Funcion que imprime las curiosidades
@@ -167,7 +199,7 @@ for(let i=0; i<respuesta.length; i++){
 respuesta[i].addEventListener("click",printAnswer = (e) => {
   if (!e) e= window.event;
   let condicion = e.target.id;
-  //llama a la funcion Filtrar por Debilidad
+  //llama a la funcion 
   let dato = window.estadistica(data,condicion);
   if(condicion === "weight"){
     imprimirRespuestaUno.innerHTML = `<li>
@@ -184,7 +216,7 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
     <img src="${dato.img}">
     <p><strong>No.</strong> ${dato.num}</p>
     <p><strong>Nombre:</strong> ${dato.name}</p>
-    <p><strong>Nombre:</strong> ${dato.height}</p>
+    <p><strong>Altura:</strong> ${dato.height}</p>
     </li> `;
     imprimirRespuestaDos.style.display = "block";
     botonRespuestaDos.style.display ="none";
@@ -194,6 +226,7 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
   else if(condicion === "candy_count"){
     imprimirRespuestaTres.innerHTML = `Se necesitan en promedio: ${dato} Candy´s`;
     imprimirRespuestaTres.style.display = "block";
+    imgCandy.style.display = "block";
     botonRespuestaTres.style.display = "none";
   }
 });
@@ -221,6 +254,7 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
     pantallaOrdenada.style.display="none";
     pantallaInfo.style.display="none";
     pantallaCuriosidades.style.display = "none";
+    seccionEstadistica.style.display = "none";
   };
   botonBuscar.addEventListener("click",myFunction);
 
@@ -248,6 +282,8 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
       imprimirRespuestaTres.style.display = "none";
       preguntaTres.style.display = "none";
       imprimirRespuestaTres.style.display = "none";
+      imgCandy.style.display = "none";
+      seccionEstadistica.style.display = "none";
 
   };
   botonCuriosidades.addEventListener ("click", curiosidades);
@@ -283,6 +319,7 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
       botonRegresar.style.display = "block";
       labelOrdenar.style.display = "none";
       pantallaCuriosidades.style.display = "none";
+      seccionEstadistica.style.display = "none";
   };
   botonInfo.addEventListener("click", infoFunction);
 
@@ -299,6 +336,7 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
       pantallaInfo.style.display = "none";
       pantallaDebilidad.style.display = "none";
       pantallaCuriosidades.style.display = "none";
+      seccionEstadistica.style.display = "none";
   };
   botonRegresar.addEventListener("click", regresar);
 

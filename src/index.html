@@ -21,8 +21,13 @@
             <option value="descendente">Z-A</option>
             <option value="numAscendente">001-151</option>
             <option value="numDescendente">151-001</option>
-        </select> 
+        </select>
     </div>
+
+    <!--seccion que imprime la estadistica-->
+    <section class="pantalla-estadistica" id="pantalla-estadistica">
+      <div id="resultado-estadistica"></div>
+    </section>
 
     <section class="pantalla-principal" id="pantalla-principal">
     </section>
@@ -117,11 +122,14 @@
 
 <!--Pantalla que muestra los pokemon de cierto tipo-->
     <section class="pantalla-resultado-tipo" id="pantalla-resultado-tipo">
+      <!--Boton para mostrar porcentaje-->
+        <button id="muestra-estadistica-tipo">Estadistica</button>
         <ul id="busqueda-por-tipo"></ul>
     </section>
 
 <!--Pantalla que muestra los pokemon con cierta debilidad-->    
     <section class="pantalla-resultado-debilidad" id="pantalla-resultado-debilidad">
+        <button id="muestra-estadistica-debilidad">Estadistica</button>
          <ul id="busqueda-por-debilidad"></ul>
     </section>
 
@@ -147,8 +155,9 @@
           <p id="pregunta-tres">¿En promedio cuantos dulces necesita un Pokemon para poder Evolucionar?</p>
           <img src="./Imagenes/pokebola.png" id="candy_count" class="estadistica">
           <p id="respuesta-tres"></p>
-          <button id="siguiente-mas-alto">Siguiente</button>
-          <button id="siguiente-promedio-candy">SiguienteProm</button>
+          <img src="./Imagenes/candy.png" id="img-candy">
+          <button id="siguiente-mas-alto" class="fas fa-angle-right"></button>
+          <button id="siguiente-promedio-candy" class="fas fa-angle-right"></button>
       </div>
     </section>
     

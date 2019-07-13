@@ -115,7 +115,7 @@ select{
     border-radius: 16%;
     grid-row-start: 1;
 }
-.botones button#boton-regresar{
+.botones #boton-regresar{
     display: none;
     grid-column-start: 1;
     grid-row-start: 1;
@@ -411,9 +411,15 @@ select{
 }
 .preguntas{
     font-size: 1.5rem;
+    
 }
 .preguntas img{
     width: 7vh;
+    margin:auto;
+}
+.preguntas button{
+    background-color: #579ffb;
+    margin: auto;
 }
 .preguntas ul li, .preguntas p{
     list-style: none;
@@ -426,8 +432,23 @@ select{
     display: none;
 }
 
-#respuesta-uno, #respuesta-dos, #respuesta-tres, #pregunta-dos, #pregunta-tres, #siguiente-promedio-candy{
+#respuesta-uno, 
+#respuesta-dos, 
+#respuesta-tres, 
+#pregunta-dos, 
+#pregunta-tres, 
+#siguiente-promedio-candy,
+#img-candy,
+#pantalla-estadistica{
     display: none;
+}
+
+.pantalla-estadistica{
+    color: whitesmoke;
+    font-size: 1.5rem;
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
 }
 .estadistica{
     display: flex;
@@ -737,3 +758,4 @@ select{
         height: 100%;
     }
   }
+

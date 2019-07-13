@@ -119,6 +119,8 @@ botonBuscarNombre.addEventListener('click',buscarNombre);
 const tipos = () =>{
   pantallaTipos.style.display="block";
   pantallaBuscar.style.display = "none";
+  botonInfo.style.display = "none";
+  botonRegresar.style.display = "block";
 };
 botonBuscarTipos.addEventListener("click",tipos);
 
@@ -167,7 +169,10 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
       if (!e) e= window.event;
       let str = " ";
       let resultado= " ";
-      let condicion = e.target.id;
+      //let condicion = e.target.id;
+      let condicion = e.target.className;
+      //let condicion = debilidad.className;
+      console.log(condicion);
       //llama a la funcion Filtrar por Debilidad
       resultado = window.filterByWeaknesses(data,condicion);
       //Imprime el resultado de la funcion
@@ -238,6 +243,8 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
     pantallaTipos.style.display="none";
     pantallaBuscar.style.display = "none";
     pantallaDebilidad.style.display ="block";
+    botonInfo.style.display = "none";
+    botonRegresar.style.display = "block";
   };
 
   botonBuscarDebilidad.addEventListener("click",muestraDebilidades); 
@@ -255,6 +262,8 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
     pantallaInfo.style.display="none";
     pantallaCuriosidades.style.display = "none";
     seccionEstadistica.style.display = "none";
+    botonInfo.style.display ="none";
+    botonRegresar.style.display = "block";
   };
   botonBuscar.addEventListener("click",myFunction);
 
@@ -320,12 +329,14 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
       labelOrdenar.style.display = "none";
       pantallaCuriosidades.style.display = "none";
       seccionEstadistica.style.display = "none";
+      pantallaPrintDebilidad.style.display = "none";
   };
   botonInfo.addEventListener("click", infoFunction);
 
   let regresar = () => {
       pantallaPrincipal.style.display = "block";
       labelOrdenar.style.display = "block";
+      botonInfo.style.display = "block";
       pantallaOrdenada.style.display = "none";
       pantallaPrintDebilidad.style.display = "none";
       pantallaPrintTipo.style.display = "none";
@@ -337,6 +348,7 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
       pantallaDebilidad.style.display = "none";
       pantallaCuriosidades.style.display = "none";
       seccionEstadistica.style.display = "none";
+      botonRegresar.style.display = "none";
   };
   botonRegresar.addEventListener("click", regresar);
 
@@ -357,5 +369,3 @@ respuesta[i].addEventListener("click",printAnswer = (e) => {
     
   
   
-
-

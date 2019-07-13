@@ -48,15 +48,16 @@ describe("pokemon", () => {
 describe('pokemon.ordenar', () => {
   it('is a function', () => {
     expect(typeof window.pokemon.ordenar).toBe('function');
-  it("debería retornar un objeto", () => {
-    expect(typeof window.pokemon.ordenar).toBe("object");
-  })
   });
-});
+  it("debería retornar un objeto", () => {
+    expect(window.pokemon.ordenar({}) instanceof Object).toBe("object");
+  });
+  });
 
 describe("pokemon.filterByType", () => {
   it("is a function", () => {
     expect(typeof window.pokemon.filterByType).toBe("function");
+  });
   it("debería retonrar un arreglo", () => {
     expect(window.pokemon.filterByType([]) instanceof Array).toBe(true);
   });
@@ -64,19 +65,19 @@ describe("pokemon.filterByType", () => {
     expect (window.pokemon.filterByType(dataMock, "Grass")).toEqual([dataMock[0]]);
   });
 });
-});
 
 describe("pokemon.filterByWeaknesses", () => {
   it("is a function", () => {
     expect(typeof window.pokemon.filterByWeaknesses).toBe("function");
-    it("debería retornar un arreglo", () => {
-      expect(window.pokemon.filterByWeaknesses([])instanceof Array).toBe(true);
-    });
+  });
+  it("debería retornar un arreglo", () => {
+    expect(window.pokemon.filterByWeaknesses([])instanceof Array).toBe(true);
+  });
     it("debería retornar un arreglo con el objeto de Venusaur", () => {
       expect (window.pokemon.filterByWeaknesses(dataMock,"Ice")).toEqual([dataMock[2]]);
     });
   });
-});
+
 
 
 

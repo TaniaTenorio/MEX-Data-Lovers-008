@@ -135,7 +135,7 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
 
 //recorre los elementos de la misma clase y asigna el evento click
   for(let i=0; i<tipo.length; i++){   
-    tipo[i].addEventListener("click", (e) => {
+    tipo[i].addEventListener("click",(e) => {
       if (!e) e= window.event;
       let str = " ";
       let resultado= " ";
@@ -157,7 +157,7 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
     });
   } 
 
-  botonEstadistica.addEventListener("click", () => {
+  botonEstadistica.addEventListener("click",() => {
     seccionEstadistica.style.display = "block";
     pantallaPrintTipo.style.display= "none";
 
@@ -196,7 +196,7 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
     });     
   }
 
-  botonEstadisticaDebilidad.addEventListener("click", () => {
+  botonEstadisticaDebilidad.addEventListener("click",() => {
     seccionEstadistica.style.display = "block";
     pantallaPrintDebilidad.style.display= "none";
 

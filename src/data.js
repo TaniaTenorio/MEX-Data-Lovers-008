@@ -48,7 +48,7 @@ estadistica : (data,propiedad) => {
   //el mas pesado y el mas alto
   if(propiedad === "weight" || propiedad === "height"){
     let result = data.sort((a,b) => (a[propiedad] > b[propiedad] ? -1 : 1));
-    return result[0];
+    return (result[0]);
   }
   //promedio de candy_count para evolucionar
   else if(propiedad === "candy_count"){
@@ -59,7 +59,7 @@ estadistica : (data,propiedad) => {
          }
           return  total + 0;
         },0);
-        return (result/151);   
+        return Math.floor(result/151);   
     }
   }
 };

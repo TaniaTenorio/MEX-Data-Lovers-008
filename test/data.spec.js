@@ -13,7 +13,10 @@ const dataMock =  [
         "Ice",
         "Flying",
         "Psychic"
-      ]
+      ],
+      "weight": "6.9 kg",
+      "height": "0.71 m",
+      "candy_count": 25,
     },{
       "id": 4,
     "num": "004",
@@ -25,7 +28,10 @@ const dataMock =  [
       "Water",
       "Ground",
       "Rock"
-    ]
+    ],
+    "weight": "8.5 kg",
+    "height": "0.61 m",
+    "candy_count": 25,
     },{
       "id": 6,
     "num": "006",
@@ -39,6 +45,9 @@ const dataMock =  [
       "Electric",
       "Rock"
     ],
+    "weight": "90.5 kg",
+    "height": "1.70 m",
+    "candy_count": 12,
     }
 ];
 
@@ -80,6 +89,22 @@ describe("pokemon.filterByWeaknesses", () => {
       expect (window.pokemon.filterByWeaknesses(dataMock,"Electric")).toEqual([dataMock[2]]);
     });
   });
+
+  describe("pokemon.estadistica", () => {
+    it("is a function", () => {
+      expect(typeof window.pokemon.estadistica).toBe("function");
+    });
+    it("debería retornar el pokemon mas pesado", () => {
+    expect (window.pokemon.estadistica(dataMock,"weight")).toEqual(dataMock[0]);
+  });
+    it("debería retornar el pokemon mas alto", () => {
+    expect (window.pokemon.estadistica(dataMock,"height")).toEqual(dataMock[0]);
+  });
+    it("debería retornar el promedio de candy count", () => {
+    expect (window.pokemon.estadistica(dataMock, "candy_count")).toBe(20);
+        console.log(window.pokemon.estadistica(dataMock, "candy_count"));
+      });
+    });
 
 
 

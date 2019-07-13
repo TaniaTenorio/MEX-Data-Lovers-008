@@ -2,39 +2,55 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 body{
     display: grid;
-    grid-template-columns: 9% 20% auto 20% 20% 9%;
-    grid-template-rows: 20% 5% auto 10% 6%;
-    background: url(./Imagenes/Interfaz-pokéxpert.png) , #4c4c4c;
+    grid-template-columns: 18% auto 18%;
+    background: #4c4c4c;
+    
+}
+.container{
+    background: url(./Imagenes/Interfaz-pokéxpert.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    width: 1200px;
-    height: 900px;
-    margin: auto;
+    height: 960px;
     font-family: 'Wendy One', sans-serif;
+    grid-column-start: 2;
+    display: grid;
+    grid-template-columns: 11% 63% 23% 3%;
+    grid-template-rows: 24% 5% auto 9% 7%;
 }
 .pantalla-principal{
     display: block;
-    grid-column-start: 2;
-    grid-column-end: 6;
-    grid-row-start: 3; 
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
     overflow: auto;
+    height: 95%;
+    width: 95%;
+    justify-self: center;
 }
 .pantalla-principal li{
     color: #fff;
 }
+.pantalla-principal li img{
+    width: 50%;
+}
+.pantalla-principal li p{
+    font-size:  2vh;
+}
 .titulo-pokedex{
-    grid-column-start:2;
-    grid-column-end: 6;
-    grid-row-start:1;
-    justify-self: center;
+    grid-column-start: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    align-self: end;
 }
 .titulo-pokedex img{
-    width: 500px;
-    height: 184px;
+    width: 50vw;
+    height: 23vh;
 }
 #ordenar-por{
     display: block;
@@ -42,18 +58,19 @@ body{
 .ordenar-por{
     grid-column-start: 2;
     grid-row-start: 2;
+    align-self: center;
 }
 .ordenar-por label{
     color: #fff;
 }
 .label-ordenar{
-    font-size: 16pt;
+    font-size: 6vh;
     align-items: center;
     justify-items: center;
 }
 select{
     background-color: #4c6203;
-    font-size: 12pt;
+    font-size: 4vh;
 }
 #pantalla-principal ul{
     margin: 0px;
@@ -69,42 +86,43 @@ select{
     width: 30%;
     text-align: center;
 }
+#pantalla-principal ul li img{
+    width: 42%;
+}
 .boton-curiosidades{
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-row-start: 4;
     align-self: end;
+    justify-self: center;
 }
 .botones{
-    display: grid;
-    grid-column-start: 5;
+    grid-column-start: 3;
     grid-row-start: 4;
+    width: 100%;
+    display: grid;
     grid-template-columns: 50% 50%;
 }
 .botones button#boton-buscar{
     grid-column-start: 2;
-    grid-row-start: 1;
     background-color: #579ffb;
     border: solid black;
     border-radius: 16%;
-    margin-top: 12px;
-    height: 85%;
 }
 .botones button#boton-info{
     grid-column-start: 1;
     background-color: #579ffb;
     border: solid black;
     border-radius: 16%;
-    margin-top: 12px;
-    height: 85%;
     grid-row-start: 1;
 }
 .botones #boton-regresar{
     display: none;
     grid-column-start: 1;
+    grid-row-start: 1;
     background-color: #579ffb;
     border: solid black;
     border-radius: 16%;
-    margin-top: 12px;
+    margin-top: 0px;
 
 }
 .botones button:hover{
@@ -112,10 +130,11 @@ select{
 }
 #pantalla-ordenada{
     display: none;
-    grid-column-start: 2;
-    grid-column-end: 6;
-    grid-row-start: 3; 
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
     overflow: auto;
+    height: 95%;
 }
 #lista-ordenada{
     margin: 0;
@@ -131,64 +150,67 @@ select{
     color: #fff;
     width: 30%;
     text-align: center;
+    font-size: 2vh;
 }
 #pantalla-buscar{
     display: none;
     
 }
 .pantalla-buscar{
-    grid-column-start: 3;
-    grid-column-end: 5;
+    display: block;
+    grid-column-start: 2;
+    grid-column-end: 4;
     grid-row-start: 3;
+    margin: 0px;
     background-color: #5f5d5d;
-    color: #fff;
-    padding: 4vh;
-    height: 84%;
-    width: 110%;
-    justify-self: center;
-    align-self: start;
+    height: 80%;
+    width: 90%;
     border-radius: 2%;
 }
 .pantalla-buscar h1{
     color: black;
-    font-size: 42pt;
+    font-size: 6vh;
     text-align: center;
     margin-top: 2vh;
-    margin-bottom: 10vh;
+    margin-bottom: 6vh;
 }
 .por-nombre{
-    margin-bottom: 8vh;
+    margin-bottom: 6vh;
     text-align: center;
+
 }
 .por-tipo{
     float: left;
-    margin-right: 3vh;
+    margin-right: 3vw;
+    margin-left: 6vw;
 }
 #tipo-pokemon, #debilidad-pokemon{
-    width: 7vh;
+    width: 10vh;
 }
 #tipo-pokemon, #debilidad-pokemon:hover{
     cursor: pointer;
 }
 .por-debilidad{
     float: right;
+    margin-right: 6vw;
 }
 .pantalla-buscar div label{
     color: black;
-    font-size: 20pt;
+    font-size: 4vh;
 }
 .pantalla-buscar div input{
     background-color: #a2a2a2;
-    width: 20vh;
-    font-size: 17pt;
-    height: 4vh;
+    width: 420vh;
+    font-size: 4vh;
+    height: 5vh;
     border: none;
 }
 .pantalla-buscar div button{
     background-color: #bb0a3a;
     border-radius: 10%;
     border: none;
-    height: 5vh;
+    height: 7vh;
+    width: 4vw;
 }
 #buscar-nombre:hover{
     cursor: pointer;
@@ -199,10 +221,11 @@ select{
 #pantalla-result-busqueda-nombre{
     display: none;
     grid-column-start: 2;
-    grid-column-end: 6;
-    grid-row-start: 3; 
-    align-self: start;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    align-self: center;
     justify-self: center;
+    width: 90%;
 }
 #pantalla-result-busqueda-nombre ul{
     color: #fff;
@@ -210,16 +233,23 @@ select{
     padding: 0px;
 }
 #pantalla-result-busqueda-nombre ul li img{
-    width: 100%;
+    height: 35vh;
+    float: left;
 }
 #pantalla-result-busqueda-nombre ul li p{
-    font-size: 14pt;
+    font-size: 4vh;
+}
+.pantalla-iconos-tipos{
+    display: none;
 }
 #pantalla-iconos-tipos{
-    display: none;
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 6;
-    grid-row-start: 3;    
+    grid-row-start: 3;
+    height: 100%;
+    width: 90%;
+    justify-self: center;
+    align-self: start;
 }
 #busqueda-por-tipo{
     display: flex;
@@ -231,10 +261,11 @@ select{
     margin: 0px;
     justify-content: center;
     overflow: auto;
+    list-style: none;
 }
-#busqueda-por-tipo li{
+#busqueda-por-tipo li, #busqueda-por-debilidad li{
     width: 30%;
-    
+    font-size: 2vh;
 }
 #tipos ul {
     list-style: none;
@@ -244,15 +275,16 @@ select{
     margin: 0px;
     justify-content: center;
 }
-#tipos ul li{
-    width: 15%;
+#tipos ul li, #debilidad ul li{
+    width: 13%;
     color: #fff;
     text-align: center;
+    font-size: 2vh;
 }
-#tipos ul li:hover{
+#tipos ul li:hover, #debilidad ul li:hover{
     cursor: pointer;
 }
-#tipos ul li img{
+#tipos ul li img,#debilidad ul li img{
     width: 100%;
 }
 #tipos ul li p{
@@ -260,9 +292,13 @@ select{
 }
 #pantalla-resultado-tipo{
     display: none;
-    grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 4;
     grid-row-start: 3;
+    height: 90%;
+    width: 90%;
+    justify-self: center;
+    align-self: center;
 }
 .pantalla-resultado-tipo{
     margin: 0px;
@@ -279,9 +315,13 @@ select{
 }
 #pantalla-iconos-debilidad{
     display: none;
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 6;
-    grid-row-start: 3;    
+    grid-row-start: 3;
+    height: 90%;
+    width: 90%;
+    justify-self: center;
+    align-self: end;    
 }
 #pantalla-iconos-debilidad div ul{
     display:flex;
@@ -289,18 +329,9 @@ select{
     flex-direction: row;
     text-align: center;
     list-style: none;
+    justify-content: center;
 }
-#debilidad ul li{
-    width: 15%;
-    color: #fff;
-    text-align: center;
-}
-#debilidad ul li:hover{
-    cursor: pointer;
-}
-#debilidad ul li img{
-    width: 100%;
-}
+
 #debilidad ul li p{
     margin: 0px;
 }
@@ -333,16 +364,19 @@ select{
 }
 #pantalla-info{
     grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-end: 4;
     grid-row-start: 3;
+    height: 90%;
+    width: 100%;
+    justify-self: center;
+    align-self: center;
 }
 #pantalla-info div{
     color: black;
     background-color: #5f5d5d;
-    height: 86%;
-    width: 72%;
+    height: 93%;
+    width: 91%;
     border-radius: 2%;
-    margin: auto;
 }
 #pantalla-info div h1{
     font-size: 28pt;
@@ -358,8 +392,8 @@ select{
     display: none;
 }
 #pantalla-curiosidades{
-    grid-column-start: 2;
-    grid-column-end: 6;
+    grid-column-start: 1;
+    grid-column-end: 4;
     grid-row-start: 3;
     justify-self: center;
 }
@@ -416,3 +450,312 @@ select{
     grid-column-end: 5;
     grid-row-start: 3;
 }
+.estadistica{
+    display: flex;
+}
+/*Most of the Smartphones Mobiles (Portrait)*/
+@media (min-width: 320px) and (max-width: 480px) {
+    body{
+        display: grid;
+        grid-template-rows: 26% auto 26%;
+        grid-template-columns: auto;
+        height: 584px;
+    }
+    .container{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-template-columns: 10% auto 23.2% 2.7%;
+        grid-template-rows: 24% 5% auto 8% 8%;
+        height: 415px;
+    } 
+    .titulo-pokedex{
+        grid-row-start: 1;
+    }
+    .titulo-pokedex img{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        width: 64vw;
+        height: 13vh;
+    }
+    .ordenar-por {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        align-self: center;
+    }
+    .ordenar-por label{
+        font-size: medium;
+    }
+    .ordenar-por select{
+        font-size: 10pt;
+    }
+    #pantalla-info{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 5;
+        height: 80%;
+        width: 96%;
+        overflow: auto;
+        justify-self: center;
+        align-self: start;
+        margin-left: 5vw;
+    }
+    .pantalla-principal, #pantalla-ordenada, #pantalla-info, #pantalla-result-busqueda-nombre{
+        grid-column-start: 1;
+        grid-row-start: 3;
+        height: 80%;
+        width: 90%;
+        overflow: auto;
+        justify-self: center;
+        grid-column-end: 4;
+    }
+    #pantalla-principal ul li{
+        width: 50%;
+        text-align: center;
+        font-size: 2vh;
+    }
+    #pantalla-principal ul li img{
+        width: 50%;
+    }
+    .pantalla-buscar{
+        height: 68%;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        padding: 0;
+        justify-self: center;
+        width: 80%;
+    }
+    .pantalla-buscar h1, #pantalla-info div h1, .pantalla-curiosidades div h1{
+        font-size: 4vh;
+        margin: 0.5vh;
+    }
+    .pantalla-buscar div label{
+        font-size: 2.5vh;
+    }
+    .por-nombre{
+        margin-bottom: 4vh;
+        font-size: 2vh;
+    }
+    .pantalla-buscar div input{
+        width: 11vh;
+        font-size: 2.5vh;
+        height: 3vh;    
+    }
+    .pantalla-buscar div button{
+        height: 5vh;
+        width: 5vh;
+    }
+    #tipo-pokemon, #debilidad-pokemon{
+        width: 8vh;
+    }
+    .pantalla-info{
+        height: 90%;
+        overflow: auto;
+        width: 100%;
+    }
+   #pantalla-info div{
+       background: none;
+       color: #fff;
+   }
+    #pantalla-info div p, #pantalla-curiosidades div p{
+        font-size: 2.5vh;
+        margin-bottom: 2vh;
+    } 
+    #pantalla-info div h1{
+        margin-bottom: 1.5vh;
+    }
+    
+    #busqueda-por-tipo li, #busqueda-por-debilidad li, #pantalla-ordenada li {
+        width: 50%;
+        font-size: small;
+    }
+    #pantalla-iconos-tipos, #pantalla-iconos-debilidad{
+        grid-row-start: 3;
+        height: 100%;
+        width: 90%;
+        overflow: auto;
+    }
+    .pantalla-iconos-tipos div, .pantalla-iconos-debilidad div{
+        overflow: auto;
+        height: 69%;
+    }
+    #tipos ul li{
+        width: 30%;
+    }
+    #debilidad ul li{
+        width: 23%;
+    }
+    #tipos ul li p, #debilidad ul li p {
+        margin: 0px;
+        font-size: small;
+    }
+    #pantalla-resultado-tipo, #pantalla-resultado-debilidad{
+        grid-row-start: 4;
+        height: 88%;
+    }
+    .pantalla-resultado-tipo ul, .pantalla-resultado-debilidad ul, .pantalla-ordenada ul{
+        height: 80%;
+    }
+    .pantalla-curiosidades{
+        height: 70%;
+    }
+    .pantalla-curiosidades div{
+        padding: 0;
+    }
+    .botones{
+        grid-row-start: 4;
+    }
+    .botones button#boton-buscar, .botones button#boton-info, .botones button#boton-regresar{
+        margin-top: 3px;
+        height: 90%;
+    }
+    .fa-3x {
+        font-size: 1.5em;
+    }
+    .boton-curiosidades {
+        grid-column-start: 1;
+        grid-row-start: 4;
+        align-self: end;
+        justify-self: center;
+    }
+    #pantalla-result-busqueda-nombre{
+        width: 80%;
+        align-self: center;
+    }
+    #pantalla-result-busqueda-nombre ul li p{
+        font-size: medium;
+    }
+    #pantalla-result-busqueda-nombre ul li img{
+        float: left;
+        height: 15vh;
+    }
+}
+/* Tablets, Ipads (landscape)*/
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        display: grid;
+        grid-template-columns: 10% auto 10%;
+        grid-template-rows: 4% auto 4%;
+    }
+    .container{
+        grid-row-start: 1;
+        display: grid;
+        grid-template-columns: 10% auto 23.2% 2.7%;
+        grid-template-rows: 24% 5% auto 8% 10%;
+        margin: 0px;
+        height: 584px;
+    }
+    .titulo-pokedex {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 2;
+    }
+    .ordenar-por {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        margin-left: 4vw;
+    }
+    .pantalla-principal, #pantalla-ordenada {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        height: 90%;
+        overflow: auto;
+    }
+    .boton-curiosidades {
+        grid-column-start: 1;
+        grid-row-start: 4;
+        align-self: end;
+        justify-self: center;
+    }
+    .botones{
+        grid-column-start: 3;
+        grid-row-start: 4;
+        margin: 0;
+    }
+    .botones button#boton-buscar, .botones button#boton-info, .botones button#boton-curiosidades{
+        margin-top: 1px;
+        height: 103%;
+    }
+    #pantalla-info {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        overflow: auto;
+    }
+    #pantalla-info div {
+        height: 150%;
+        width: 93%;
+        margin-left: 3.5vw;
+    }
+    .pantalla-buscar {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        height: 90%;
+        width: 90%;
+    }
+    .pantalla-buscar h1, .pantalla-buscar div{
+        margin-bottom: 5vh;
+    }
+    .pantalla-buscar div button {
+        height: 7vh;
+        width: 7vw;
+    }
+    .por-tipo, .por-debilidad {
+        margin-right: 3vw;
+        margin-left: 9vw;
+    }
+    #tipo-pokemon, #debilidad-pokemon {
+        width: 10vh;
+    }
+    #pantalla-result-busqueda-nombre {
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        width: 77%;
+        align-self: center;
+    }
+    #pantalla-result-busqueda-nombre ul li img {
+        height: 32vh;
+        float: left;
+    }
+    #pantalla-iconos-tipos, #pantalla-iconos-debilidad {
+        grid-column-start: 1;
+        grid-row-start: 3;
+        height: 90%;
+        overflow: auto;
+        align-self: center;
+        grid-column-end: 4;
+    }
+    #tipos ul li, #debilidad ul li {
+        width: 20%;
+    }
+    #tipos ul li p, #debilidad ul li p {
+        font-size: medium;
+    }
+    #pantalla-resultado-tipo, .pantalla-resultado-debilidad {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        height: 95%;
+        width: 87%;
+        justify-self: center;
+    }
+    #pantalla-curiosidades {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        justify-self: center;
+        width: 90%;
+        height: 90%;
+    }
+    #pantalla-curiosidades div{
+        height: 100%;
+    }
+  }
+

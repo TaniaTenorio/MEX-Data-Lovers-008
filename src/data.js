@@ -6,10 +6,10 @@
 };
 
 window.example = example;*/
-
+window.pokemon = {
 
 // FUNCION QUE ORDENA 
-  let ordenar = (data,propiedad,orden) => {
+   ordenar : (data,propiedad,orden) => {
     let resultado = {};
     if(orden === "ascendente" || orden === "numAscendente") {
     resultado = data.sort((a,b) => (a[propiedad] > b[propiedad] ? 1 : -1));
@@ -18,10 +18,10 @@ window.example = example;*/
     resultado = data.sort ((a,b) => (a[propiedad] > b[propiedad] ? -1 : 1));
     }
     return resultado;
-};
+},
 
 //Funcion que filtra por tipo
-let filterByType = (data,condicion) => {
+filterByType : (data,condicion) => {
   let filtro = data.filter(pokemon => {
     for( let i = 0; i < pokemon.type.length; i++){
       if (pokemon.type[i] === condicion){
@@ -31,19 +31,20 @@ let filterByType = (data,condicion) => {
     return false;
   });
   return filtro;
-};
+},
 
 //Funcion que filtra por debilidad
 
-let filterByWeaknesses = (data,condicion) => {
+filterByWeaknesses : (data,condicion) => {
   let filtro = data.filter(pokemon => {
     return pokemon.weaknesses.find((arr) => arr === condicion);
-      })
+      });
       return filtro;
-    };      
+    },     
+
 
 //Funcion datos curiosos
-let estadistica = (data,propiedad) => {
+estadistica : (data,propiedad) => {
   //el mas pesado y el mas alto
   if(propiedad === "weight" || propiedad === "height"){
     let result = data.sort((a,b) => (a[propiedad] > b[propiedad] ? -1 : 1));
@@ -51,18 +52,20 @@ let estadistica = (data,propiedad) => {
   }
   //promedio de candy_count para evolucionar
   else if(propiedad === "candy_count"){
+
        let result = data.reduce((total,item)=>{
          if (data.hasOwnProperty(item.candy_count)){
           return total + item.candy_count;
          }
           return  total + 0;
-        },0)
+        },0);
         return (result/151);   
     }
-  } 
+  }
+};
 
 
-window.ordenar= ordenar;
-window.filterByType = filterByType;
-window.filterByWeaknesses = filterByWeaknesses;
-window.estadistica = estadistica;
+// window.ordenar= ordenar;
+// window.filterByType = filterByType;
+// window.filterByWeaknesses = filterByWeaknesses;
+// window.estadistica = estadistica;

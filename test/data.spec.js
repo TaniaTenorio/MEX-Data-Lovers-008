@@ -50,7 +50,7 @@ describe('pokemon.ordenar', () => {
     expect(typeof window.pokemon.ordenar).toBe('function');
   it("debería retornar un objeto", () => {
     expect(typeof window.pokemon.ordenar).toBe("object");
-  })
+  });
   });
 });
 

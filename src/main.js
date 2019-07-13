@@ -135,7 +135,7 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
 
 //recorre los elementos de la misma clase y asigna el evento click
   for(let i=0; i<tipo.length; i++){   
-    tipo[i].addEventListener("click", printType = (e) => {
+    tipo[i].addEventListener("click", (e) => {
       if (!e) e= window.event;
       let str = " ";
       let resultado= " ";
@@ -149,7 +149,7 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
       //Calcula el porcentajez 
       let porcentajeTipo = Math.round((resultado.length * 100) / 151);
       imprimeEstadistica.innerHTML = `<p>El porcentaje de Pokemon</p>
-      <p>de tipo ${condicion} es ${porcentajeTipo} %</p>`
+      <p>de tipo ${condicion} es ${porcentajeTipo} %</p>`;
       //Oculta la pantalla Tipos
       pantallaTipos.style.display = "none";
       //Imprime los pokemon por tipo
@@ -157,7 +157,7 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
     });
   } 
 
-  botonEstadistica.addEventListener("click", PorcentajeTipo = () => {
+  botonEstadistica.addEventListener("click", () => {
     seccionEstadistica.style.display = "block";
     pantallaPrintTipo.style.display= "none";
 
@@ -189,18 +189,18 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
       let porcentajeTipo = Math.round((resultado.length * 100) / 151);
       imprimeEstadistica.innerHTML = `<p>El porcentaje de los Pokemon</p>
       <p>debiles a los Tipo ${condicion} es:
-       ${porcentajeTipo} %</p>`
+       ${porcentajeTipo} %</p>`;
       //Oculta la pantalla Tipos
       pantallaDebilidad.style.display = "none";
       pantallaPrintDebilidad.style.display= "block";
     });     
   }
 
-  botonEstadisticaDebilidad.addEventListener("click", PorcentajeDebilidad = () => {
+  botonEstadisticaDebilidad.addEventListener("click", () => {
     seccionEstadistica.style.display = "block";
     pantallaPrintDebilidad.style.display= "none";
 
-  })
+  });
 
   
 

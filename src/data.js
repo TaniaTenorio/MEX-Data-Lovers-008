@@ -52,14 +52,17 @@ estadistica : (data,propiedad) => {
   }
   //promedio de candy_count para evolucionar
   else if(propiedad === "candy_count"){
-
        let result = data.reduce((total,item)=>{
          if (data.hasOwnProperty(item.candy_count)){
           return total + item.candy_count;
          }
           return  total + 0;
         },0);
-        return Math.floor(result/151);   
+        //console.log(result);
+        //console.log(data.length);
+        result = Math.floor(result/data.length);
+        //console.log(result);
+        return result;
     }
   }
 };

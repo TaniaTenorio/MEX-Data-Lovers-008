@@ -130,7 +130,7 @@ botonBuscarTipos.addEventListener("click",tipos);
 
 let imprimeEstadistica = document.getElementById("resultado-estadistica");
 let botonEstadistica = document.getElementById("muestra-estadistica-tipo");
-//es la que se debe ocultar y mostrar
+//es la seccion que se debe ocultar y mostrar donde aparece la estadistica
 let seccionEstadistica = document.getElementById("pantalla-estadistica"); 
 
 //recorre los elementos de la misma clase y asigna el evento click
@@ -142,14 +142,35 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
       let condicion = e.target.id;
       //llama a la funcion Filtrar
       resultado = window.pokemon.filterByType(data,condicion);
-      //Imprime el resltado de la funcion Filtrar
+      //Imprime el resultado de la funcion Filtrar
         str = imprimir(resultado);
         resultadoBuscarTipo.innerHTML = str; 
 
-      //Calcula el porcentajez 
+      //Calcula el porcentaje de Pkemon por tipo
       let porcentajeTipo = Math.round((resultado.length * 100) / 151);
       imprimeEstadistica.innerHTML = `<p>El porcentaje de Pokemon</p>
       <p>de tipo ${condicion} es ${porcentajeTipo} %</p>`;
+
+      //aqui empieza el codigo para los graficos
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Tipo', 'Porcentaje'],
+          [condicion, resultado.length],
+          ['Otros', 151-resultado.length]
+        ]);
+
+        var options = {
+          title: 'Porcentaje de Pokemon por Tipo'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
       //Oculta la pantalla Tipos
       pantallaTipos.style.display = "none";
       //Imprime los pokemon por tipo
@@ -176,20 +197,37 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
       if (!e) e= window.event;
       let str = " ";
       let resultado= " ";
-      //let condicion = e.target.id;
       let condicion = e.target.className;
-      //let condicion = debilidad.className;
-      console.log(condicion);
       //llama a la funcion Filtrar por Debilidad
       resultado = window.pokemon.filterByWeaknesses(data,condicion);
       //Imprime el resultado de la funcion
       str = imprimir(resultado);
       resultadoBuscarDebilidad.innerHTML = str; 
-      //Calcula el porcentajez 
+      //Calcula el porcentaje
       let porcentajeTipo = Math.round((resultado.length * 100) / 151);
-      imprimeEstadistica.innerHTML = `<p>El porcentaje de los Pokemon</p>
-      <p>debiles a los Tipo ${condicion} es:
+      imprimeEstadistica.innerHTML = `<p>El porcentaje de Pokemon</p>
+      <p>debiles Contra ${condicion} es:
        ${porcentajeTipo} %</p>`;
+
+       //aqui empieza el codigo para los graficos
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Debilidad', 'Porcentaje'],
+          [condicion, resultado.length],
+          ['Otros', 151-resultado.length]
+        ]);
+
+        var options = {
+          title: 'Porcentaje de Pokemon debiles contra'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+
       //Oculta la pantalla Tipos
       pantallaDebilidad.style.display = "none";
       pantallaPrintDebilidad.style.display= "block";
@@ -238,7 +276,6 @@ respuesta[i].addEventListener("click",(e) => {
     botonSiguientePromedio.style.display = "block";
   }
   else if(condicion === "candy_count"){
-    dato = Math.round(dato);
     imprimirRespuestaTres.innerHTML = ` ${dato} Candy´s`;
     imprimirRespuestaTres.style.display = "block";
     imgCandy.style.display = "block";

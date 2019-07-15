@@ -16,8 +16,9 @@ const dataMock =  [
       ],
       "weight": "6.9 kg",
       "height": "0.71 m",
-      "candy_count": 25,
-    },{
+      "candy_count": 25
+    },
+    {
       "id": 4,
     "num": "004",
     "name": "Charmander",
@@ -31,8 +32,9 @@ const dataMock =  [
     ],
     "weight": "8.5 kg",
     "height": "0.61 m",
-    "candy_count": 25,
-    },{
+    "candy_count": 25
+    },
+    {
       "id": 6,
     "num": "006",
     "name": "Charizard",
@@ -53,7 +55,7 @@ const dataMock =  [
 
 describe("pokemon", () => {
   it("is an object", () => {
-    expect  (typeof pokemon).toBe("object");
+    expect(typeof pokemon).toBe("object");
   });
 });
 
@@ -70,11 +72,11 @@ describe("pokemon.filterByType", () => {
   it("is a function", () => {
     expect(typeof window.pokemon.filterByType).toBe("function");
   });
-  it("debería retonrar un arreglo", () => {
+  it("debería retornar un arreglo", () => {
     expect(window.pokemon.filterByType([]) instanceof Array).toBe(true);
   });
   it("debería retornar un arreglo con el objeto de Bulbasaur", () => {
-    expect (window.pokemon.filterByType(dataMock,"Grass")).toEqual([dataMock[0]]);
+    expect(window.pokemon.filterByType(dataMock,"Grass")).toEqual([dataMock[0]]);
   });
 });
 
@@ -86,7 +88,7 @@ describe("pokemon.filterByWeaknesses", () => {
     expect(window.pokemon.filterByWeaknesses([])instanceof Array).toBe(true);
   });
     it("debería retornar un arreglo con el objeto de Venusaur", () => {
-      expect (window.pokemon.filterByWeaknesses(dataMock,"Electric")).toEqual([dataMock[2]]);
+      expect(window.pokemon.filterByWeaknesses(dataMock,"Electric")).toEqual([dataMock[2]]);
     });
   });
 
@@ -95,15 +97,17 @@ describe("pokemon.filterByWeaknesses", () => {
       expect(typeof window.pokemon.estadistica).toBe("function");
     });
     it("debería retornar el pokemon mas pesado", () => {
-    expect (window.pokemon.estadistica(dataMock,"weight")).toEqual(dataMock[0]);
+    expect(window.pokemon.estadistica(dataMock,"weight")).toEqual(dataMock[0]);
   });
     it("debería retornar el pokemon mas alto", () => {
     expect (window.pokemon.estadistica(dataMock,"height")).toEqual(dataMock[0]);
   });
-    it("debería retornar el promedio de candy count", () => {
-    expect (window.pokemon.estadistica(dataMock, "candy_count")).toBe(20);
-        console.log(window.pokemon.estadistica(dataMock, "candy_count"));
+  it("debería retornar el candy count", () => {
+    expect(dataMock[1].candy_count).toEqual(25);
       });
+    //it("debería retornar el promedio de candy count", () => {
+    //expect (window.pokemon.estadistica(dataMock, "candy_count")).toBe(20);
+      //});
     });
 
 

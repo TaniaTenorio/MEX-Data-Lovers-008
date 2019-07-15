@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css?family=Wendy+One&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/4f820322b0.js"></script>
+    <!--Enlace a Google Charts-->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
   <body>
       <div class="titulo-pokedex">
@@ -27,6 +29,8 @@
     <!--seccion que imprime la estadistica-->
     <section class="pantalla-estadistica" id="pantalla-estadistica">
       <div id="resultado-estadistica"></div>
+      <!--Div donde se imprimen las graficas de Google Charts-->
+      <div id = "piechart"> </div>
     </section>
 
     <section class="pantalla-principal" id="pantalla-principal">
@@ -157,14 +161,14 @@
 
     <section class="pantalla-curiosidades" id="pantalla-curiosidades"> <!--para darle display: none y ocultar la pantalla-->
       <div class ="preguntas"> <!--Para darle estilo a la caja-->
-          <h3>Curiosidades de tus Pokemon, ¿Sabes la respuesta?</h3>
+          <h3>Curiosidades de tus Pokemon, ¿Sabes la respuesta?</h3><br>
           <p id="pregunta-uno">¿Cual es el Pokemon mas pesado?</p>
           <img src="./Imagenes/pokebola.png" id="weight" class="estadistica">
           <ul id="respuesta-uno"></ul>
-          <p id="pregunta-dos">¿Cual es el Pokemon mas alto?</p>
+          <p id="pregunta-dos">¿Cual es el Pokemon mas alto?</p><br>
           <img src="./Imagenes/pokebola.png" id="height" class="estadistica">
           <ul id="respuesta-dos"></ul>
-          <p id="pregunta-tres">¿En promedio cuantos dulces necesita un Pokemon para poder Evolucionar?</p>
+          <p id="pregunta-tres">¿En promedio cuantos dulces necesita un Pokemon para poder Evolucionar?</p><br>
           <img src="./Imagenes/pokebola.png" id="candy_count" class="estadistica">
           <p id="respuesta-tres"></p>
           <img src="./Imagenes/candy.png" id="img-candy">

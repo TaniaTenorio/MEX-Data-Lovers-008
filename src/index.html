@@ -9,11 +9,10 @@
     <script src="https://kit.fontawesome.com/4f820322b0.js"></script>
 </head>
   <body>
-    <div class = "container">
       <div class="titulo-pokedex">
           <img src="./Imagenes/pokexpert.png" alt="Título Pokéxpert">
       </div>
-
+    <div class = "container">
      <div class="ordenar-por" id="ordenar-por">
         <label for="ordenar" class="label-ordenar">Ordenar <i class="fas fa-sort"></i></label>
         <select id="ordenar">
@@ -34,7 +33,7 @@
     </section>
 
     <div class="boton-curiosidades">
-      <button id="boton-curiosidades">Botón</button>
+      <button id="boton-curiosidades"><i class="fas fa-search-plus fa-2x"></i></button>
     </div>
 
     <div class="botones">
@@ -74,6 +73,9 @@
     </section>
 
     <section class="pantalla-iconos-tipos" id="pantalla-iconos-tipos">
+        <div class ="titulo-tipos">
+          <h1>Tipos</h1>
+        </div>  
         <div id="tipos">
           <ul>
             <li class="iconos"><img src="Imagenes/Tipos/TipoAgua.png" id="Water"><p>Agua</p></li>
@@ -97,28 +99,31 @@
     </section>
 
     <section class="pantalla-iconos-debilidad" id="pantalla-iconos-debilidad">
-            <div id="debilidad">
-              <ul>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoAgua.png" class="Water"><p>Agua</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/tipoFuego.png" class= "Fire"><p>Fuego</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPlanta.png" class="Grass"><p>Planta</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoTierra.png" class="Ground"><p>Tierra</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoRoca.png" class="Rock"><p>Roca</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoAcero.png" class="Steel"><p>Acero</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoHielo.png" class="Ice"><p>Hielo</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoElectrico.png" class="Electric"><p>Eléctrico</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoDragon.png" class="Dragon"><p>Dragón</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoFantasma.png" class="Ghost"><p>Fantasma</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPsiquico.png" class="Psychic"><p>Psíquico</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoNormal.png" class="Normal"><p>Normal</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPelea.png" class="Fighting"><p>Pelea</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoVeneno.png" class="Poison"><p>Veneno</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoInsecto.png" class="Bug"><p>Insecto</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoVolador.png" class="Flying"><p>Volador</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoSiniestro.png" class="Dark"><p>Siniestro</p></li>
-                <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoHada.png" class="Fairy"><p>Hada</p></li>
-              </ul>
-            </div>
+        <div class ="titulo-tipos">
+            <h1>Débil al:</h1>
+        </div> 
+        <div id="debilidad">
+          <ul>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoAgua.png" class="Water"><p>Agua</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/tipoFuego.png" class= "Fire"><p>Fuego</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPlanta.png" class="Grass"><p>Planta</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoTierra.png" class="Ground"><p>Tierra</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoRoca.png" class="Rock"><p>Roca</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoAcero.png" class="Steel"><p>Acero</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoHielo.png" class="Ice"><p>Hielo</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoElectrico.png" class="Electric"><p>Eléctrico</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoDragon.png" class="Dragon"><p>Dragón</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoFantasma.png" class="Ghost"><p>Fantasma</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPsiquico.png" class="Psychic"><p>Psíquico</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoNormal.png" class="Normal"><p>Normal</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoPelea.png" class="Fighting"><p>Pelea</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoVeneno.png" class="Poison"><p>Veneno</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoInsecto.png" class="Bug"><p>Insecto</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoVolador.png" class="Flying"><p>Volador</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoSiniestro.png" class="Dark"><p>Siniestro</p></li>
+            <li class="iconos-debilidad"><img src="Imagenes/Tipos/TipoHada.png" class="Fairy"><p>Hada</p></li>
+          </ul>
+        </div>
         </section>
 
 <!--Pantalla que muestra los pokemon de cierto tipo-->
@@ -157,8 +162,8 @@
           <img src="./Imagenes/pokebola.png" id="candy_count" class="estadistica">
           <p id="respuesta-tres"></p>
           <img src="./Imagenes/candy.png" id="img-candy">
-          <button id="siguiente-mas-alto" class="fas fa-angle-right"></button>
-          <button id="siguiente-promedio-candy" class="fas fa-angle-right"></button>
+          <button id="siguiente-mas-alto" class="fas fa-angle-right fa-1x"></button>
+          <button id="siguiente-promedio-candy" class="fas fa-angle-right fa-1x"></button>
       </div>
     </section>
     

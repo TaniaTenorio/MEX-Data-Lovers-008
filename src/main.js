@@ -238,7 +238,7 @@ respuesta[i].addEventListener("click",(e) => {
     botonSiguientePromedio.style.display = "block";
   }
   else if(condicion === "candy_count"){
-    imprimirRespuestaTres.innerHTML = `Se necesitan en promedio: ${dato} Candy´s`;
+    imprimirRespuestaTres.innerHTML = `${dato} Candy´s`;
     imprimirRespuestaTres.style.display = "block";
     imgCandy.style.display = "block";
     botonRespuestaTres.style.display = "none";

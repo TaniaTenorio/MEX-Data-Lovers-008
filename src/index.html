@@ -129,14 +129,20 @@
 <!--Pantalla que muestra los pokemon de cierto tipo-->
     <section class="pantalla-resultado-tipo" id="pantalla-resultado-tipo">
       <!--Boton para mostrar porcentaje-->
-        <button id="muestra-estadistica-tipo">Estadistica</button>
+      <div class="tooltip">
+        <button  id="muestra-estadistica-tipo"> <i class="fas fa-chart-bar"></i></button>
+        <span class="tiptext"> Estadística</span> 
+      </div>  
         <ul id="busqueda-por-tipo"></ul>
     </section>
 
 <!--Pantalla que muestra los pokemon con cierta debilidad-->    
     <section class="pantalla-resultado-debilidad" id="pantalla-resultado-debilidad">
-        <button id="muestra-estadistica-debilidad">Estadistica</button>
-         <ul id="busqueda-por-debilidad"></ul>
+        <div class="tooltip">  
+          <button id="muestra-estadistica-debilidad"><i class="fas fa-chart-bar"></i></button>
+          <span class ="tiptext">Estadistica</span>
+        </div>
+        <ul id="busqueda-por-debilidad"></ul>
     </section>
 
     <section class="pantalla-info" id="pantalla-info">

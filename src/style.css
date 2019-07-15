@@ -312,17 +312,18 @@ select{
 #tipos ul li p{
     margin: 0px;
 }
-#pantalla-resultado-tipo{
+#pantalla-resultado-tipo, #pantalla-resultado-debilidad{
     display: none;
     grid-column-start: 1;
     grid-column-end: 4;
-    grid-row-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
     height: 90%;
     width: 90%;
     justify-self: center;
     align-self: center;
 }
-.pantalla-resultado-tipo{
+.pantalla-resultado-tipo, .pantalla-resultado-debilidad{
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -331,6 +332,50 @@ select{
     text-align: center;
     list-style: none;
     overflow-y: auto;
+
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+.tooltip .tiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #4c4c4c;
+    color: #fff;
+    text-align: center;
+    font-size: 3vh;
+    border-radius: 3px;
+    padding: 6px 0;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.tooltip .tiptext::after {
+    content: "";
+    position: absolute;
+    border-width: 0px;
+    border-style: solid;
+}
+.tooltip:hover .tiptext {
+    visibility: visible;
+}
+.tooltip.left .tiptext{
+    top: -5px;
+    right: 110%;
+}
+.tooltip.left .tiptext::after{
+    margin-top: -5px;
+    top: 50%;
+    left: 100%;
+    border-color: transparent transparent transparent #2E2E2E;
+}
+#muestra-estadistica-tipo, #muestra-estadistica-debilidad{
+    font-size: 4vh;
+    background-color: #4c6203;
+    border: none;
+    border-radius: 2%;
+    width: 5vw;
 }
 #pantalla-resultado-tipo li p{
     color: #fff;
@@ -357,19 +402,6 @@ select{
 
 #debilidad ul li p{
     margin: 0px;
-}
-.pantalla-resultado-debilidad{
-    display:none;
-    grid-column-start: 2;
-    grid-column-end: 6;
-    grid-row-start: 3;
-}
-.pantalla-resultado-debilidad{
-    
-    overflow: auto;
-    grid-column-start: 2;
-    grid-column-end: 6;
-    grid-row-start: 3;
 }
 .pantalla-resultado-debilidad ul{
     display: flex;
@@ -418,10 +450,12 @@ select{
 #pantalla-curiosidades{
     grid-column-start: 1;
     grid-column-end: 4;
-    grid-row-start: 2;
+    grid-row-start: 1;
     grid-row-end: 4;
     justify-self: center;
+    align-self: center;
     width: 80%;
+    height: 92%;
 }
 #pantalla-curiosidades div h1{
     margin-bottom: 7vh;
@@ -432,7 +466,7 @@ select{
     text-align: center;
     background-color: #5f5d5d;
     border-radius: 2%;
-    height: 80%;
+    height: 100%;
     padding: 3vh;
 }
 #pantalla-curiosidades div h3{

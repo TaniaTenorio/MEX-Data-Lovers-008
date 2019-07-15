@@ -209,7 +209,7 @@ select{
 }
 .pantalla-buscar div label{
     color: black;
-    font-size: 4vh;
+    font-size: 3.5vh;
 }
 .pantalla-buscar div input{
     background-color: #a2a2a2;
@@ -408,7 +408,7 @@ select{
     flex-direction: row;
     flex-wrap: wrap;
     list-style: none;
-    color: whitesmoke
+    color: whitesmoke;
     text-align: center;
 }
 .pantalla-resultado-debilidad ul li{
@@ -420,7 +420,7 @@ select{
 #pantalla-info{
     grid-column-start: 2;
     grid-column-end: 4;
-    grid-row-start: 2;
+    grid-row-start: 1;
     grid-row-end: 4;
     height: 90%;
     width: 100%;
@@ -565,7 +565,7 @@ select{
         grid-column-end: 4;
         grid-row-start: 3;
         grid-row-end: 5;
-        height: 80%;
+        height: 70%;
         width: 96%;
         overflow: auto;
         justify-self: center;
@@ -574,8 +574,9 @@ select{
     }
     .pantalla-principal, #pantalla-ordenada, #pantalla-info, #pantalla-result-busqueda-nombre{
         grid-column-start: 1;
-        grid-row-start: 3;
-        height: 80%;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        height: 70%;
         width: 90%;
         overflow: auto;
         justify-self: center;
@@ -593,9 +594,10 @@ select{
         height: 68%;
         grid-column-start: 1;
         grid-column-end: 4;
-        grid-row-start: 3;
+        grid-row-start: 2;
         padding: 0;
         justify-self: center;
+        align-self: start;
         width: 80%;
     }
     .pantalla-buscar h1, #pantalla-info div h1, .pantalla-curiosidades div h1{
@@ -643,14 +645,18 @@ select{
         font-size: small;
     }
     #pantalla-iconos-tipos, #pantalla-iconos-debilidad{
-        grid-row-start: 3;
+        grid-row-start: 2;
         height: 100%;
         width: 90%;
         overflow: auto;
     }
-    .pantalla-iconos-tipos div, .pantalla-iconos-debilidad div{
+    #tipos #debilidad{
         overflow: auto;
-        height: 69%;
+        height: 55%;
+    }
+    #titulo-tipos{
+        height: 42px;
+        margin-top: 0px;
     }
     #tipos ul li{
         width: 30%;

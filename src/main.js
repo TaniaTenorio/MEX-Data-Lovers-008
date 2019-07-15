@@ -1,5 +1,6 @@
 
 let data = window.POKEMON.pokemon;
+let google = window.google;
 let labelOrdenar = document.getElementById("ordenar-por");
 let pantallaPrincipal = document.getElementById("pantalla-principal");
 let mostrar = document.getElementById('pantalla-principal');
@@ -213,8 +214,7 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
        ${porcentajeTipo} %</p>`;
 
        //aqui empieza el codigo para los graficos
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
@@ -230,8 +230,9 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
         chart.draw(data, options);
       }
-
-      //Oculta la pantalla Tipos
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      // Oculta la pantalla Tipos
       pantallaDebilidad.style.display = "none";
       pantallaPrintDebilidad.style.display= "block";
     });     
@@ -403,21 +404,3 @@ respuesta[i].addEventListener("click",(e) => {
       botonInfo.style.display = "block";
   };
   botonRegresar.addEventListener("click", regresar);
-
-
-  //usar la funcion que imprime la data ****** PENDIENTE
-  /*resultado.forEach(element => {
-      str += `<li>
-      <img src="${element.img}">
-      <p><strong>No.</strong> ${element.num}</p>
-      <p><strong>Nombre:</strong> ${element.name}</p>
-      </li> `;
-  });*/
-
-  
-  
-
-
-    
-  
-  

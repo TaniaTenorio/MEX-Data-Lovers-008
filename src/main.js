@@ -92,8 +92,8 @@ const printordenar = () => {
 ordenarPor.addEventListener("change", printordenar);
 
 //funcion que busca por nombre del pokemon
+
 let buscarNombre = () => {
-  
   let texto= inputNombre.value.toLowerCase();
   for(let pokemon of data){
         let nombre = pokemon.name.toLowerCase();
@@ -103,11 +103,13 @@ let buscarNombre = () => {
             <p><strong>No. </strong> ${pokemon.num}</p>
             <p><strong>Nombre: </strong> ${pokemon.name}</p>
             <p><strong>Tipo: </strong> ${pokemon.type}</p>
-            <p><strong>Debilidad: </strong> ${pokemon.weaknesses}</p>
-            <p><strong>Sig. Evolución:</strong> 
+            <p><strong>Debilidad: </strong> ${pokemon.weaknesses}</p>`;
+            if (data.hasOwnProperty(pokemon.next_evolution)){
+            `<p><strong>Sig. Evolución:</strong> 
             <p><strong>No. </strong>${pokemon.next_evolution[0].num}</p>
             <p><strong>Nombre: </strong> ${pokemon.next_evolution[0].name}</p>
             </li>`;
+            }
         }
     }
     pantallaBuscar.style.display = "none";
@@ -181,6 +183,7 @@ let seccionEstadistica = document.getElementById("pantalla-estadistica");
   botonEstadistica.addEventListener("click",() => {
     seccionEstadistica.style.display = "block";
     pantallaPrintTipo.style.display= "none";
+    //botonRegresar.style.display= "block";
 
   });
 
@@ -276,7 +279,7 @@ respuesta[i].addEventListener("click",(e) => {
     botonSiguientePromedio.style.display = "block";
   }
   else if(condicion === "candy_count"){
-    imprimirRespuestaTres.innerHTML = ` ${dato} Candy´s`;
+    imprimirRespuestaTres.innerHTML = `${dato} Candy´s`;
     imprimirRespuestaTres.style.display = "block";
     imgCandy.style.display = "block";
     botonRespuestaTres.style.display = "none";

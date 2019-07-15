@@ -7,7 +7,8 @@
 }
 body{
     display: grid;
-    grid-template-columns: 18% auto 18%;
+    grid-template-rows: 27% auto;
+    grid-template-columns: 25% auto 25%;
     background: #4c4c4c;
     
 }
@@ -16,9 +17,12 @@ body{
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    height: 960px;
+    height: 708px;
+    width: 100%;
+    max-width: 825px;
     font-family: 'Wendy One', sans-serif;
     grid-column-start: 2;
+    grid-row-start: 2;
     display: grid;
     grid-template-columns: 11% 63% 23% 3%;
     grid-template-rows: 24% 5% auto 9% 7%;
@@ -45,19 +49,18 @@ body{
 .titulo-pokedex{
     grid-column-start: 2;
     grid-row-start: 1;
-    grid-row-end: 3;
     align-self: end;
 }
 .titulo-pokedex img{
-    width: 50vw;
-    height: 23vh;
+    width: 825px;
+    height: 213px;
 }
 #ordenar-por{
     display: block;
 }
 .ordenar-por{
     grid-column-start: 2;
-    grid-row-start: 2;
+    grid-row-start: 1;
     align-self: center;
 }
 .ordenar-por label{
@@ -92,8 +95,16 @@ select{
 .boton-curiosidades{
     grid-column-start: 1;
     grid-row-start: 4;
-    align-self: end;
-    justify-self: center;
+    grid-row-end: 6;
+    align-self: center;
+    justify-self: end;
+}
+.boton-curiosidades button{
+    background: none;
+    border: none;
+}
+.boton-curiosidades button .fa-2x{
+    font-size: 4em;
 }
 .botones{
     grid-column-start: 3;
@@ -160,12 +171,14 @@ select{
     display: block;
     grid-column-start: 2;
     grid-column-end: 4;
-    grid-row-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
     margin: 0px;
     background-color: #5f5d5d;
     height: 80%;
     width: 90%;
     border-radius: 2%;
+    align-self: center;
 }
 .pantalla-buscar h1{
     color: black;
@@ -182,7 +195,7 @@ select{
 .por-tipo{
     float: left;
     margin-right: 3vw;
-    margin-left: 6vw;
+    margin-left: 5vw;
 }
 #tipo-pokemon, #debilidad-pokemon{
     width: 10vh;
@@ -192,7 +205,7 @@ select{
 }
 .por-debilidad{
     float: right;
-    margin-right: 6vw;
+    margin-right: 5vw;
 }
 .pantalla-buscar div label{
     color: black;
@@ -223,7 +236,7 @@ select{
     grid-column-start: 2;
     grid-column-end: 4;
     grid-row-start: 3;
-    align-self: center;
+    align-self: start;
     justify-self: center;
     width: 90%;
 }
@@ -239,13 +252,22 @@ select{
 #pantalla-result-busqueda-nombre ul li p{
     font-size: 4vh;
 }
+.titulo-tipos{
+    color: #fff;
+    font-size: 7vh;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    text-align: center;
+
+}
 .pantalla-iconos-tipos{
     display: none;
 }
 #pantalla-iconos-tipos{
     grid-column-start: 1;
     grid-column-end: 6;
-    grid-row-start: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
     height: 100%;
     width: 90%;
     justify-self: center;
@@ -317,11 +339,12 @@ select{
     display: none;
     grid-column-start: 1;
     grid-column-end: 6;
-    grid-row-start: 3;
-    height: 90%;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    height: 100%;
     width: 90%;
     justify-self: center;
-    align-self: end;    
+    align-self: start;    
 }
 #pantalla-iconos-debilidad div ul{
     display:flex;
@@ -365,7 +388,8 @@ select{
 #pantalla-info{
     grid-column-start: 2;
     grid-column-end: 4;
-    grid-row-start: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
     height: 90%;
     width: 100%;
     justify-self: center;
@@ -394,8 +418,10 @@ select{
 #pantalla-curiosidades{
     grid-column-start: 1;
     grid-column-end: 4;
-    grid-row-start: 3;
+    grid-row-start: 2;
+    grid-row-end: 4;
     justify-self: center;
+    width: 80%;
 }
 #pantalla-curiosidades div h1{
     margin-bottom: 7vh;
@@ -407,11 +433,13 @@ select{
     background-color: #5f5d5d;
     border-radius: 2%;
     height: 80%;
-    padding: 5vh;
+    padding: 3vh;
+}
+#pantalla-curiosidades div h3{
+    margin-top: 2vh;
 }
 .preguntas{
     font-size: 1.5rem;
-    
 }
 .preguntas img{
     width: 7vh;
@@ -420,10 +448,12 @@ select{
 .preguntas button{
     background-color: #579ffb;
     margin: auto;
+    margin-top: 2vh;
 }
 .preguntas ul li, .preguntas p{
     list-style: none;
     color: yellow;
+    margin-top: 2vh;
 }
 #weight{
     display: block;
@@ -599,15 +629,22 @@ select{
     .pantalla-resultado-tipo ul, .pantalla-resultado-debilidad ul, .pantalla-ordenada ul{
         height: 80%;
     }
-    .pantalla-curiosidades{
-        height: 70%;
+    #pantalla-curiosidades{
+        grid-row-start: 1;
+        height: 80%;
+        align-self: center;
     }
-    .pantalla-curiosidades div{
+    #pantalla-curiosidades div{
         padding: 0;
+        height: 105%;
+    }
+    #pantalla curiosidades div h3{
+        font-size: 3vh;
     }
     .botones{
         grid-row-start: 4;
     }
+
     .botones button#boton-buscar, .botones button#boton-info, .botones button#boton-regresar{
         margin-top: 3px;
         height: 90%;
@@ -618,6 +655,7 @@ select{
     .boton-curiosidades {
         grid-column-start: 1;
         grid-row-start: 4;
+        grid-row-end: 5;
         align-self: end;
         justify-self: center;
     }
@@ -632,32 +670,43 @@ select{
         float: left;
         height: 15vh;
     }
+    .boton-curiosidades button .fa-2x{
+        font-size: 2em;
+    }
 }
 /* Tablets, Ipads (landscape)*/
 @media (min-width: 768px) and (max-width: 1024px) {
     body {
         display: grid;
         grid-template-columns: 10% auto 10%;
-        grid-template-rows: 4% auto 4%;
+        grid-template-rows: 20% auto 18%;
+        height: 1024px;
     }
     .container{
-        grid-row-start: 1;
+        grid-row-start: 2;
         display: grid;
         grid-template-columns: 10% auto 23.2% 2.7%;
         grid-template-rows: 24% 5% auto 8% 10%;
         margin: 0px;
-        height: 584px;
+        height: 705px;
     }
     .titulo-pokedex {
         grid-column-start: 2;
         grid-column-end: 4;
-        grid-row-start: 2;
+        grid-row-start: 1;
     }
     .ordenar-por {
         grid-column-start: 1;
         grid-column-end: 3;
-        grid-row-start: 2;
+        grid-row-start: 1;
         margin-left: 4vw;
+        align-self: end;
+    }
+    .label-ordenar{
+        font-size:5vh;
+    }
+    .ordenar-por select{
+        font-size: 3vh;
     }
     .pantalla-principal, #pantalla-ordenada {
         grid-column-start: 1;
@@ -669,8 +718,8 @@ select{
     .boton-curiosidades {
         grid-column-start: 1;
         grid-row-start: 4;
-        align-self: end;
-        justify-self: center;
+        align-self: center;
+        justify-self: end;
     }
     .botones{
         grid-column-start: 3;
@@ -684,23 +733,27 @@ select{
     #pantalla-info {
         grid-column-start: 1;
         grid-column-end: 4;
-        grid-row-start: 3;
+        grid-row-start: 1;
         overflow: auto;
+        height: 80%;
     }
     #pantalla-info div {
-        height: 150%;
+        height: 100%;
         width: 93%;
         margin-left: 3.5vw;
     }
     .pantalla-buscar {
         grid-column-start: 2;
         grid-column-end: 4;
-        grid-row-start: 3;
-        height: 90%;
+        grid-row-start: 1;
+        height: 67%;
         width: 90%;
     }
     .pantalla-buscar h1, .pantalla-buscar div{
         margin-bottom: 5vh;
+    }
+    .pantalla-buscar div label{
+        font-size: 3.5vh;
     }
     .pantalla-buscar div button {
         height: 7vh;
@@ -711,22 +764,21 @@ select{
         margin-left: 9vw;
     }
     #tipo-pokemon, #debilidad-pokemon {
-        width: 10vh;
+        width: 7vh;
     }
     #pantalla-result-busqueda-nombre {
         grid-column-start: 2;
         grid-column-end: 4;
-        grid-row-start: 3;
+        grid-row-start: 2;
         width: 77%;
-        align-self: center;
     }
     #pantalla-result-busqueda-nombre ul li img {
-        height: 32vh;
+        height: 24vh;
         float: left;
     }
     #pantalla-iconos-tipos, #pantalla-iconos-debilidad {
         grid-column-start: 1;
-        grid-row-start: 3;
+        grid-row-start: 1;
         height: 90%;
         overflow: auto;
         align-self: center;
@@ -749,10 +801,14 @@ select{
     #pantalla-curiosidades {
         grid-column-start: 1;
         grid-column-end: 4;
-        grid-row-start: 3;
+        grid-row-start: 1;
         justify-self: center;
         width: 90%;
-        height: 90%;
+        height: 80%;
+        align-self: center;
+    }
+    #pantalla-result-busqueda-nombre ul li p{
+        font-size: 3vh;
     }
     #pantalla-curiosidades div{
         height: 100%;
